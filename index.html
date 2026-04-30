@@ -1,0 +1,651 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<meta name="description" content="Archishman Bandyopadhyay — Strategy, Technology & Product. 12 years across Tata Motors, Mahindra, Monitor Deloitte, and Accenture. Building in public.">
+<title>Archishman Bandyopadhyay</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&family=Space+Grotesk:wght@400;500;600;700&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
+<style>
+*,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
+:root{
+  --bg:#08090f;
+  --surface:#0e1118;
+  --surface2:#141720;
+  --surface3:#1c2030;
+  --border:#1e2438;
+  --border2:#2a3350;
+  --blue:#5b8ef5;
+  --blue-dim:rgba(91,141,245,0.11);
+  --blue-border:rgba(91,141,245,0.22);
+  --amber:#f0a840;
+  --amber-dim:rgba(240,168,64,0.10);
+  --amber-border:rgba(240,168,64,0.2);
+  --teal:#34c9a0;
+  --teal-dim:rgba(52,201,160,0.10);
+  --green:#34d399;
+  --text:#dde4f4;
+  --text2:#7f92ae;
+  --text3:#354560;
+  --serif:'Playfair Display',Georgia,serif;
+  --display:'Space Grotesk',system-ui,sans-serif;
+  --sans:'Inter',system-ui,sans-serif;
+  --r:8px;
+}
+html{scroll-behavior:smooth;font-size:15px}
+body{
+  background:var(--bg);
+  color:var(--text);
+  font-family:var(--sans);
+  line-height:1.65;
+  overflow-x:hidden;
+  -webkit-font-smoothing:antialiased;
+}
+/* subtle grid */
+body::before{
+  content:'';position:fixed;inset:0;
+  background-image:linear-gradient(rgba(91,141,245,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(91,141,245,0.018) 1px,transparent 1px);
+  background-size:52px 52px;pointer-events:none;z-index:0;
+}
+/* radial top-left glow */
+body::after{
+  content:'';position:fixed;top:-200px;left:-200px;
+  width:600px;height:600px;
+  background:radial-gradient(circle,rgba(91,141,245,0.05) 0%,transparent 68%);
+  pointer-events:none;z-index:0;
+}
+.wrap{max-width:860px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
+
+/* ── HEADER ── */
+header{
+  border-bottom:1px solid var(--border);
+  position:sticky;top:0;
+  background:rgba(8,9,15,0.84);
+  backdrop-filter:blur(16px);
+  -webkit-backdrop-filter:blur(16px);
+  z-index:100;
+}
+nav{display:flex;align-items:center;justify-content:space-between;height:60px}
+.logo{
+  font-family:var(--display);font-size:15px;font-weight:700;
+  color:var(--text);text-decoration:none;letter-spacing:-.01em;
+}
+.logo em{color:var(--blue);font-style:normal}
+.nav-links{list-style:none;display:flex;gap:28px}
+.nav-links a{font-size:13px;color:var(--text2);text-decoration:none;transition:color .2s}
+.nav-links a:hover{color:var(--text)}
+
+/* ── HERO ── */
+.hero{padding:86px 0 68px}
+.eyebrow{
+  display:inline-flex;align-items:center;gap:10px;
+  font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--blue);margin-bottom:28px;
+}
+.eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--blue)}
+.hero h1{
+  font-family:var(--display);
+  font-size:clamp(48px,9vw,80px);
+  font-weight:700;line-height:1.02;letter-spacing:-.03em;
+  margin-bottom:28px;
+}
+.hero h1 .accent{color:var(--blue);display:block}
+.hero-sub{
+  font-size:16.5px;color:var(--text2);
+  max-width:560px;line-height:1.75;margin-bottom:40px;
+}
+.hero-sub strong{color:var(--text);font-weight:500}
+.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
+.btn{
+  display:inline-flex;align-items:center;gap:9px;
+  padding:12px 20px;
+  font-family:var(--display);font-size:13.5px;font-weight:600;letter-spacing:.02em;
+  text-decoration:none;border-radius:var(--r);transition:all .2s;cursor:pointer;
+}
+.btn svg{transition:transform .2s}
+.btn:hover svg{transform:translateX(3px)}
+.btn-primary{background:var(--blue);color:#fff}
+.btn-primary:hover{background:#4979e2;transform:translateY(-2px)}
+.btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border2)}
+.btn-ghost:hover{color:var(--text);border-color:rgba(91,141,245,0.4)}
+
+/* ── SECTION LABEL ── */
+.sec{display:flex;align-items:center;gap:14px;margin-bottom:26px}
+.sec span{
+  font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--text3);white-space:nowrap;
+}
+.sec-rule{flex:1;height:1px;background:var(--border)}
+
+/* ── STORY / BACKGROUND ── */
+.story{margin-bottom:64px}
+.pull-quote{
+  border-left:2px solid var(--blue);
+  padding:14px 0 14px 26px;
+  margin-bottom:36px;
+  font-family:var(--serif);
+  font-size:clamp(15px,2.4vw,19px);
+  font-weight:400;font-style:italic;
+  color:var(--text);line-height:1.58;
+  letter-spacing:-.01em;
+}
+.pm-active{margin-bottom:38px}
+.pm-active-label{
+  font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  color:var(--text3);margin-bottom:12px;
+}
+.pm-chips{display:flex;flex-wrap:wrap;gap:8px}
+.pm-chip{
+  font-size:12px;font-weight:500;color:var(--blue);
+  background:var(--blue-dim);border:1px solid var(--blue-border);
+  padding:5px 12px;border-radius:4px;
+}
+.pm-chip.amber-chip{color:var(--amber);background:var(--amber-dim);border-color:var(--amber-border)}
+.pm-chip.teal-chip{color:var(--teal);background:var(--teal-dim);border-color:rgba(52,201,160,0.22)}
+
+.story-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
+.story-block{padding-right:36px}
+.story-block:last-child{padding-right:0;padding-left:36px;border-left:1px solid var(--border)}
+.story-block h3{
+  font-family:var(--display);font-size:11px;font-weight:700;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:16px;
+}
+.story-block p{font-size:13.5px;color:var(--text2);line-height:1.8;margin-bottom:14px}
+.story-block p:last-of-type{margin-bottom:0}
+.story-block p strong{color:var(--text);font-weight:500}
+.target-callout{
+  margin-top:22px;padding:14px 16px;
+  background:var(--blue-dim);border:1px solid var(--blue-border);
+  border-radius:var(--r);font-size:13px;color:var(--text);font-weight:500;line-height:1.55;
+}
+.target-callout span{
+  display:block;font-size:10px;font-weight:700;letter-spacing:.16em;
+  text-transform:uppercase;color:var(--blue);margin-bottom:6px;
+}
+
+/* ── STATS BAR ── */
+.stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--border);border-radius:var(--r);
+  overflow:hidden;background:var(--surface);margin:0 0 64px;
+}
+.s-item{padding:22px;border-right:1px solid var(--border)}
+.s-item:last-child{border-right:none}
+.s-val{font-family:var(--display);font-size:20px;font-weight:700;color:var(--text);margin-bottom:3px}
+.s-lbl{font-size:11.5px;color:var(--text3);letter-spacing:.03em}
+
+/* ── AI THREAD ── */
+.ai-section{margin-bottom:64px}
+.ai-intro{font-size:14.5px;color:var(--text2);line-height:1.8;margin-bottom:28px;max-width:680px}
+.ai-intro strong{color:var(--text);font-weight:500}
+.thread{border:1px solid var(--border);border-radius:var(--r);background:var(--surface);overflow:hidden;margin-bottom:0}
+.thread-item{display:grid;grid-template-columns:44px 1fr;border-bottom:1px solid var(--border)}
+.thread-item:last-child{border-bottom:none}
+.thread-n{
+  display:flex;align-items:flex-start;justify-content:center;
+  padding:20px 0 0;
+  font-family:var(--display);font-size:11px;font-weight:700;
+  letter-spacing:.06em;color:var(--text3);
+  border-right:1px solid var(--border);
+}
+.thread-body{padding:18px 20px}
+.thread-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:5px}
+.thread-text{font-size:13px;color:var(--text2);line-height:1.75}
+.thread-badge{
+  display:inline-block;margin-top:8px;
+  font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;
+  padding:3px 9px;border-radius:10px;
+}
+.badge-blue{background:var(--blue-dim);color:var(--blue);border:1px solid var(--blue-border)}
+.badge-teal{background:var(--teal-dim);color:var(--teal);border:1px solid rgba(52,201,160,0.22)}
+.badge-amber{background:var(--amber-dim);color:var(--amber);border:1px solid var(--amber-border)}
+
+/* ── BUILDING IN PUBLIC ── */
+.bip{margin-bottom:64px}
+.bip-manifesto{
+  font-size:15px;color:var(--text2);line-height:1.82;
+  margin-bottom:28px;max-width:700px;
+}
+.bip-manifesto strong{color:var(--text);font-weight:500}
+.bip-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:0}
+.bip-card{
+  border:1px solid var(--border);border-radius:var(--r);
+  background:var(--surface);padding:24px 26px;
+}
+.bip-head{display:flex;align-items:center;gap:10px;margin-bottom:18px}
+.bip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
+.bip-dot.blue{background:var(--blue)}
+.bip-dot.amber{background:var(--amber)}
+.bip-card h4{
+  font-family:var(--display);font-size:12.5px;font-weight:700;
+  letter-spacing:.1em;text-transform:uppercase;color:var(--text);
+}
+.bip-items{list-style:none;display:flex;flex-direction:column;gap:11px}
+.bip-items li{
+  font-size:13px;color:var(--text2);line-height:1.6;
+  padding-left:18px;position:relative;
+}
+.bip-items li::before{
+  content:'→';position:absolute;left:0;top:1px;
+  color:var(--text3);font-size:11px;
+}
+
+/* ── FEATURED CARD ── */
+.feat{
+  display:block;text-decoration:none;position:relative;
+  border:1px solid var(--border2);border-radius:10px;
+  background:var(--surface);padding:38px 40px;
+  margin-bottom:64px;overflow:hidden;
+  transition:border-color .25s,transform .25s;
+}
+.feat::before{
+  content:'';position:absolute;top:0;left:0;right:0;height:2px;
+  background:linear-gradient(90deg,var(--blue),var(--amber));
+}
+.feat:hover{border-color:rgba(91,141,245,0.45);transform:translateY(-3px)}
+.feat-badge{
+  display:inline-flex;align-items:center;gap:7px;
+  font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;
+  color:var(--amber);background:var(--amber-dim);border:1px solid var(--amber-border);
+  padding:4px 11px;border-radius:4px;margin-bottom:18px;
+}
+.pulse-dot{
+  width:6px;height:6px;border-radius:50%;
+  background:var(--green);
+  animation:pulse 2s infinite;
+}
+@keyframes pulse{
+  0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(52,211,153,.4)}
+  50%{opacity:.8;box-shadow:0 0 0 4px rgba(52,211,153,0)}
+}
+.feat h2{
+  font-family:var(--display);font-size:clamp(20px,3.5vw,28px);
+  font-weight:700;color:var(--text);letter-spacing:-.02em;
+  margin-bottom:12px;
+}
+.feat-desc{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:20px;max-width:600px}
+.feat-desc em{color:var(--text);font-style:italic}
+.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px}
+.chip{
+  font-size:11.5px;font-weight:500;color:var(--text2);
+  background:var(--surface2);border:1px solid var(--border);
+  padding:4px 11px;border-radius:4px;
+}
+.feat-cta{
+  display:inline-flex;align-items:center;gap:8px;
+  font-family:var(--display);font-size:13.5px;font-weight:600;color:var(--blue);
+}
+.feat-cta svg{transition:transform .2s}
+.feat:hover .feat-cta svg{transform:translateX(4px)}
+
+/* ── PORTFOLIO GRID ── */
+.p-grid{
+  display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));
+  gap:13px;margin-bottom:72px;
+}
+.p-card{
+  border:1px solid var(--border);border-radius:var(--r);
+  background:var(--surface);padding:22px 24px;
+  transition:border-color .2s,background .2s;
+}
+a.p-card{display:block;text-decoration:none;color:inherit;cursor:pointer}
+a.p-card:hover{border-color:var(--border2);background:var(--surface2)}
+.p-card.locked{opacity:.4}
+.p-status{
+  display:flex;align-items:center;gap:6px;
+  font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  margin-bottom:13px;
+}
+.p-dot{width:6px;height:6px;border-radius:50%}
+.p-status.live{color:var(--green)}
+.p-status.live .p-dot{background:var(--green);box-shadow:0 0 6px var(--green);animation:pulse 2s infinite}
+.p-status.building{color:var(--amber)}
+.p-status.building .p-dot{background:var(--amber)}
+.p-status.soon{color:var(--text3)}
+.p-status.soon .p-dot{background:var(--text3)}
+.p-num{
+  font-family:var(--display);font-size:11px;font-weight:600;
+  color:var(--text3);letter-spacing:.08em;margin-bottom:5px;
+}
+.p-title{
+  font-family:var(--display);font-size:14.5px;font-weight:600;
+  color:var(--text);margin-bottom:7px;
+}
+.p-desc{font-size:12.5px;color:var(--text2);line-height:1.6}
+.p-eta{font-size:11.5px;color:var(--text3);margin-top:11px}
+
+/* ── CREDENTIALS ── */
+.creds-section{margin-bottom:72px}
+.certs{display:flex;flex-wrap:wrap;gap:8px}
+.cert{
+  font-size:12px;font-weight:500;color:var(--text2);
+  background:var(--surface);border:1px solid var(--border);
+  padding:6px 14px;border-radius:4px;
+}
+
+/* ── FOOTER ── */
+footer{
+  border-top:1px solid var(--border);padding:28px 0;
+  display:flex;align-items:center;justify-content:space-between;
+  flex-wrap:wrap;gap:14px;
+}
+.foot-copy{font-size:12px;color:var(--text3)}
+.foot-links{display:flex;gap:20px}
+.foot-links a{font-size:12px;color:var(--text3);text-decoration:none;transition:color .2s}
+.foot-links a:hover{color:var(--text2)}
+
+/* ── REVEAL ── */
+.reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+.reveal.visible{opacity:1;transform:none}
+
+/* ── RESPONSIVE ── */
+@media(max-width:640px){
+  .hero{padding:52px 0 44px}
+  .stats{grid-template-columns:repeat(2,1fr)}
+  .s-item:nth-child(2){border-right:none}
+  .s-item:nth-child(3),.s-item:nth-child(4){border-top:1px solid var(--border)}
+  .s-item:nth-child(4){border-right:none}
+  .story-grid{grid-template-columns:1fr}
+  .story-block{padding-right:0}
+  .story-block:last-child{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:28px;margin-top:28px}
+  .bip-grid{grid-template-columns:1fr}
+  .feat{padding:24px 22px}
+  .nav-links{display:none}
+  .hero h1{font-size:44px}
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="wrap">
+    <nav>
+      <a href="/" class="logo">Archishman <em>B.</em></a>
+      <ul class="nav-links">
+        <li><a href="#story">Background</a></li>
+        <li><a href="#bip">Building in Public</a></li>
+        <li><a href="#portfolio">Portfolio</a></li>
+        <li><a href="https://www.linkedin.com/in/archishmanb/" target="_blank">LinkedIn ↗</a></li>
+      </ul>
+    </nav>
+  </div>
+</header>
+
+<main>
+<div class="wrap">
+
+  <!-- ── HERO ── -->
+  <section class="hero">
+    <div class="eyebrow">Strategy · Technology · Product · Hyderabad</div>
+    <h1>Archishman<span class="accent">Bandyopadhyay.</span></h1>
+    <p class="hero-sub">
+      <strong>12 years across Tata Motors, Mahindra, Monitor Deloitte, and Accenture.</strong>
+      From factory floors and brand P&Ls to enterprise architecture and AI-augmented delivery.
+      A deliberate, documented exploration of where strategy consulting competencies meet
+      product and technology leadership — <strong>built entirely in public.</strong>
+    </p>
+    <div class="hero-cta">
+      <a href="https://archishman-b.github.io/career-intelligence-map/" class="btn btn-primary" target="_blank">
+        Career Intelligence Map
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="#bip" class="btn btn-ghost">Building in Public ↓</a>
+    </div>
+  </section>
+
+  <!-- ── STORY ── -->
+  <section id="story" class="story">
+    <div class="sec reveal"><span>Background</span><div class="sec-rule"></div></div>
+
+    <blockquote class="pull-quote reveal">
+      "Strategy consulting trains you to do something that looks a lot like product work — listen for the real signal, frame the right problem, design the solution with execution already in mind, and stay accountable to the outcome. This portfolio exists to make that legible — and to extend it into new territory."
+    </blockquote>
+
+    <div class="pm-active reveal">
+      <div class="pm-active-label">PM-adjacent work I'm already doing at Accenture &amp; Monitor Deloitte</div>
+      <div class="pm-chips">
+        <span class="pm-chip">Discovery &amp; Problem Framing</span>
+        <span class="pm-chip">Stakeholder Research</span>
+        <span class="pm-chip">Solution Architecture</span>
+        <span class="pm-chip">Business Case Ownership</span>
+        <span class="pm-chip amber-chip">Capability Roadmapping</span>
+        <span class="pm-chip amber-chip">Value Realization Governance</span>
+        <span class="pm-chip amber-chip">OKR / KPI Framework Design</span>
+        <span class="pm-chip teal-chip">Agentic AI Adoption Lead</span>
+        <span class="pm-chip teal-chip">GenAI Workflow Design</span>
+        <span class="pm-chip teal-chip">AI-Augmented Delivery</span>
+      </div>
+    </div>
+
+    <div class="story-grid">
+      <div class="story-block reveal">
+        <h3>Where this comes from</h3>
+        <p>
+          I started on a <strong>commercial vehicle trim line at Tata Motors</strong> — production management, quality programmes, PMO. Then three roles at <strong>Mahindra's tractor business:</strong> building a CLTV model on 2M+ customers, owning an $80M brand P&L, and designing the channel strategy for a newly acquired implements business.
+        </p>
+        <p>
+          At <strong>Monitor Deloitte</strong>, I led pricing transformations, GTM strategies, and post-M&A commercial architecture redesigns across automotive, tech, retail, and media — including a $50M pricing transformation for one of the largest US auto parts retailers and Cisco's XaaS transition.
+        </p>
+        <p>
+          At <strong>Accenture Technology Strategy</strong>, I led EA rationalization for a global automotive OEM (~10K applications, 2,500+ capabilities), and sit on the core team driving agentic AI adoption across Strategy CoEs.
+        </p>
+      </div>
+
+      <div class="story-block reveal">
+        <h3>The exploration</h3>
+        <p>
+          The work I've done across consulting engagements is structurally similar to what senior PM roles demand — understanding a complex problem space, framing the right question, designing a solution that a cross-functional team can execute, and governing the outcomes. The vocabulary is different. The underlying method is the same.
+        </p>
+        <p>
+          <strong>AI is changing the equation.</strong> The tools barrier — historically the moat between strategy and product — is narrowing. What remains is the upstream skill: knowing which problem to solve, for whom, and why now. That is consulting-trained.
+        </p>
+        <p>
+          This public portfolio is the bridge: demonstrating that the competency already operates at the required level, while building the domain fluency, technical vocabulary, and community credibility that tech-first product roles require.
+        </p>
+        <div class="target-callout">
+          <span>Direction</span>
+          Product leadership at tech-first companies where strategy depth, cross-functional credibility, and AI fluency are the differentiator — not a nice-to-have.
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── STATS ── -->
+  <div class="stats reveal">
+    <div class="s-item"><div class="s-val">12 yrs</div><div class="s-lbl">Cross-functional</div></div>
+    <div class="s-item"><div class="s-val">~$130M</div><div class="s-lbl">P&amp;L &amp; revenue accountability</div></div>
+    <div class="s-item"><div class="s-val">2M+</div><div class="s-lbl">Customers modelled</div></div>
+    <div class="s-item"><div class="s-val">10K+</div><div class="s-lbl">Applications rationalised</div></div>
+  </div>
+
+  <!-- ── AI SECTION ── -->
+  <section class="ai-section">
+    <div class="sec reveal"><span>The structural shift</span><div class="sec-rule"></div></div>
+    <p class="ai-intro reveal">
+      The traditional barrier between strategy and execution — <strong>knowing how to build the thing</strong> — is narrowing faster than most institutions expect. AI is abstracting the tool-specific layer, which amplifies the upstream skills that were always the hard part.
+    </p>
+    <div class="thread reveal">
+      <div class="thread-item">
+        <div class="thread-n">01</div>
+        <div class="thread-body">
+          <div class="thread-title">Synthesising ambiguous signals into a crisp problem statement</div>
+          <div class="thread-text">No LLM finds the right question on its own. Translating messy stakeholder input into a defensible hypothesis — and knowing when the brief is wrong — remains firmly human. Twelve years of consulting is the training ground.</div>
+          <span class="thread-badge badge-blue">Consulting core · irreplaceable</span>
+        </div>
+      </div>
+      <div class="thread-item">
+        <div class="thread-n">02</div>
+        <div class="thread-body">
+          <div class="thread-title">Generating, evaluating, and iterating on solutions at speed</div>
+          <div class="thread-text">AI dramatically accelerates the solution generation and evaluation loop. A strategist who can direct AI agents to prototype, test, and refine operates faster than a specialist who owns only one step of that process.</div>
+          <span class="thread-badge badge-teal">AI-amplified · already in practice</span>
+        </div>
+      </div>
+      <div class="thread-item">
+        <div class="thread-n">03</div>
+        <div class="thread-body">
+          <div class="thread-title">Cross-functional alignment — stakeholders who don't share incentives</div>
+          <div class="thread-text">C-suite stakeholder management, sequencing decisions across teams without a shared reporting line, governing outcomes over an 18-month delivery cycle. This is what consulting at scale looks like. It is also what senior delivery roles look like.</div>
+          <span class="thread-badge badge-teal">Domain-agnostic · proven at manager level</span>
+        </div>
+      </div>
+      <div class="thread-item">
+        <div class="thread-n">04</div>
+        <div class="thread-body">
+          <div class="thread-title">Technical depth and tooling — the narrowing moat</div>
+          <div class="thread-text">Historically the barrier for specialists. Still relevant — but the gap between "knows which question to ask of a system" and "built the system from scratch" is closing. The focus shifts to the judgment layer above the tools.</div>
+          <span class="thread-badge badge-amber">Barrier lowering · actively bridging</span>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── BUILDING IN PUBLIC ── -->
+  <section id="bip" class="bip">
+    <div class="sec reveal"><span>Building in Public</span><div class="sec-rule"></div></div>
+
+    <p class="bip-manifesto reveal">
+      Most career explorations are announced after the fact. I'm doing the opposite —
+      <strong>publishing real, verifiable artefacts in the open</strong> across five strategic domains
+      over 50 weeks. Not retrospective case studies. Not opinion pieces. Actual frameworks, analyses,
+      and interactive tools — each scoped and shipped like a product. The goal is dual: to
+      demonstrate that my thinking already operates at the required level, and to deliberately build
+      the domain fluency and community credibility of the tech product world I'm moving toward.
+    </p>
+
+    <div class="bip-grid reveal">
+      <div class="bip-card">
+        <div class="bip-head">
+          <div class="bip-dot blue"></div>
+          <h4>Demonstrating</h4>
+        </div>
+        <ul class="bip-items">
+          <li>Problem framing and solution design that operates upstream of sprint execution</li>
+          <li>Commercial strategy depth — pricing, GTM, channel, operating model — translated into reusable tools</li>
+          <li>Data-informed decisions: ML, analytics, and causal inference frameworks for strategy practitioners</li>
+          <li>Independent end-to-end shipping: discovery → architecture → live public artefact</li>
+        </ul>
+      </div>
+      <div class="bip-card">
+        <div class="bip-head">
+          <div class="bip-dot amber"></div>
+          <h4>Learning</h4>
+        </div>
+        <ul class="bip-items">
+          <li>Tech PM practices at product-led companies, outside large-enterprise consulting delivery models</li>
+          <li>AI product strategy: from adoption advisory to roadmap ownership for AI-native features</li>
+          <li>Consumer and B2B discovery methods versus enterprise stakeholder management</li>
+          <li>Building audience, credibility, and feedback loops through sustained public work</li>
+        </ul>
+      </div>
+    </div>
+  </section>
+
+  <!-- ── FEATURED ── -->
+  <div class="sec reveal"><span>Featured</span><div class="sec-rule"></div></div>
+
+  <a href="https://archishman-b.github.io/career-intelligence-map/" class="feat reveal" target="_blank">
+    <div class="feat-badge"><div class="pulse-dot"></div> Live · Project 01</div>
+    <h2>Career Intelligence Map</h2>
+    <p class="feat-desc">
+      A full-spectrum interactive analysis of skills, career archetypes, industry coverage, experience timeline, and strategic synergies — built on the premise that career differentiation lives in <em>combinations</em>, not individual credentials. The first public artefact of this exploration.
+    </p>
+    <div class="chips">
+      <span class="chip">Skills Architecture</span>
+      <span class="chip">Career Archetypes</span>
+      <span class="chip">Industry Coverage</span>
+      <span class="chip">Experience Timeline</span>
+      <span class="chip">Strategic Synergies</span>
+    </div>
+    <div class="feat-cta">
+      Explore the map
+      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+    </div>
+  </a>
+
+  <!-- ── PORTFOLIO ── -->
+  <div id="portfolio" class="sec reveal"><span>Portfolio</span><div class="sec-rule"></div></div>
+
+  <div class="p-grid">
+    <a href="https://archishman-b.github.io/career-intelligence-map/" class="p-card reveal" target="_blank">
+      <div class="p-status live"><div class="p-dot"></div>Live</div>
+      <div class="p-num">01</div>
+      <div class="p-title">Career Intelligence Map</div>
+      <p class="p-desc">Full-spectrum interactive career analysis — skills, archetypes, synergies, and 10-year planning horizon.</p>
+    </a>
+    <a href="https://archishman-b.github.io/ml-for-strategy/ML_Strategy_Playbook.html" class="p-card reveal" target="_blank">
+      <div class="p-status live"><div class="p-dot"></div>Live</div>
+      <div class="p-num">02</div>
+      <div class="p-title">ML Strategy Playbook</div>
+      <p class="p-desc">19-model field guide for strategy and PM contexts. Pre-populated analyst workflows, outputs, and business interpretation.</p>
+    </a>
+    <a href="https://archishman-b.github.io/databridge/databridge.html" class="p-card reveal" target="_blank">
+      <div class="p-status live"><div class="p-dot"></div>Live</div>
+      <div class="p-num">03</div>
+      <div class="p-title">DataBridge</div>
+      <p class="p-desc">Browser-based data transformation tool for analysts — filter, aggregate, inspect, and segment CSVs without writing code.</p>
+    </a>
+    <div class="p-card locked reveal">
+      <div class="p-status building"><div class="p-dot"></div>Building</div>
+      <div class="p-num">04</div>
+      <div class="p-title">GTM Strategy Framework</div>
+      <p class="p-desc">Structured canvas for channel design, pricing model selection, partner ecosystem structure, and RTM sequencing.</p>
+      <div class="p-eta">Q3 2026</div>
+    </div>
+    <div class="p-card locked reveal">
+      <div class="p-status building"><div class="p-dot"></div>Building</div>
+      <div class="p-num">05</div>
+      <div class="p-title">Pricing Analyser</div>
+      <p class="p-desc">Interactive price waterfall, margin driver, and discount governance tool — based on the NAPA pricing transformation methodology.</p>
+      <div class="p-eta">Q3 2026</div>
+    </div>
+    <div class="p-card locked reveal">
+      <div class="p-status soon"><div class="p-dot"></div>Coming soon</div>
+      <div class="p-num">06</div>
+      <div class="p-title">EA Rationalization Toolkit</div>
+      <p class="p-desc">Capability maturity scoring, portfolio health framework, and investment re-routing logic from the global OEM engagement.</p>
+      <div class="p-eta">Q4 2026</div>
+    </div>
+  </div>
+
+  <!-- ── CREDENTIALS ── -->
+  <div class="creds-section">
+    <div class="sec reveal"><span>Credentials</span><div class="sec-rule"></div></div>
+    <div class="certs reveal">
+      <span class="cert">B.Tech Mechanical · NIT Silchar</span>
+      <span class="cert">MBA Marketing · SIBM Pune</span>
+      <span class="cert">Strategy IQ · Builder Level</span>
+      <span class="cert">GCP Gen AI Certified</span>
+      <span class="cert">AWS Partner Certified</span>
+      <span class="cert">FinOps (in progress)</span>
+      <span class="cert">Sr. Member · SIBM RSDT</span>
+    </div>
+  </div>
+
+</div>
+</main>
+
+<div class="wrap">
+  <footer>
+    <div class="foot-copy">Archishman Bandyopadhyay · Hyderabad · 2026</div>
+    <div class="foot-links">
+      <a href="https://www.linkedin.com/in/archishmanb/" target="_blank">LinkedIn</a>
+      <a href="https://github.com/archishman-b" target="_blank">GitHub</a>
+      <a href="https://archishman-b.github.io/portfolio-roadmap/" target="_blank">Roadmap</a>
+    </div>
+  </footer>
+</div>
+
+<script>
+const obs = new IntersectionObserver((entries) => {
+  entries.forEach(e => {
+    if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
+  });
+}, { threshold: 0.07 });
+document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
+</script>
+
+</body>
+</html>
