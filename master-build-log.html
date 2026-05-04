@@ -1,0 +1,660 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Master Build Log — Archishman Bandyopadhyay</title>
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Syne:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&family=Instrument+Sans:ital,wght@0,400;0,500;0,600;1,400&display=swap');
+
+:root {
+  --bg:      #0C0C0D;
+  --bg-2:    #111113;
+  --bg-3:    #161618;
+  --bg-4:    #1C1C1F;
+  --border:  rgba(255,255,255,0.07);
+  --border-2:rgba(255,255,255,0.04);
+  --tx-1:    #F0EFEC;
+  --tx-2:    #A8A7A2;
+  --tx-3:    #65635E;
+  --accent:  #C8A96E;
+  --green:   #2EC4A0;
+  --amber:   #E09A3C;
+  --red:     #E05C5C;
+  --blue:    #5B9CF6;
+  --purple:  #7B74E8;
+}
+
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--tx-1);line-height:1.6;font-size:14px;-webkit-font-smoothing:antialiased}
+::-webkit-scrollbar{width:4px}
+::-webkit-scrollbar-track{background:transparent}
+::-webkit-scrollbar-thumb{background:var(--border);border-radius:2px}
+
+.layout{display:grid;grid-template-columns:220px 1fr;min-height:100vh}
+
+/* SIDEBAR */
+.sidebar{background:var(--bg-2);border-right:1px solid var(--border);position:sticky;top:0;height:100vh;overflow-y:auto;padding:0;display:flex;flex-direction:column}
+.sb-brand{padding:20px 18px;border-bottom:1px solid var(--border)}
+.sb-brand-title{font-family:'Syne',sans-serif;font-size:13px;font-weight:600;color:var(--tx-1);margin-bottom:2px}
+.sb-brand-sub{font-family:'JetBrains Mono',monospace;font-size:9px;color:var(--tx-3);letter-spacing:.06em;text-transform:uppercase}
+.sb-body{flex:1;padding:10px 0}
+.sb-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx-3);padding:10px 18px 4px}
+.sb-link{display:block;padding:6px 18px;font-size:11px;color:var(--tx-2);text-decoration:none;border-left:2px solid transparent;transition:all .12s}
+.sb-link:hover{color:var(--tx-1);background:rgba(255,255,255,0.04)}
+.sb-link.active{color:var(--accent);border-left-color:var(--accent);background:rgba(200,169,110,0.06)}
+.sb-link small{display:block;font-size:9px;color:var(--tx-3);margin-top:1px;font-family:'JetBrains Mono',monospace}
+.sb-div{height:1px;background:var(--border);margin:8px 18px}
+
+/* MAIN */
+.main{overflow-x:hidden}
+
+/* HERO */
+.hero{background:var(--bg-2);border-bottom:1px solid var(--border);padding:40px 48px 36px}
+.hero-eyebrow{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.12em;text-transform:uppercase;color:var(--accent);margin-bottom:12px}
+.hero-title{font-family:'Syne',sans-serif;font-size:28px;font-weight:700;color:var(--tx-1);margin-bottom:8px;letter-spacing:-.02em}
+.hero-sub{font-size:13px;color:var(--tx-2);max-width:560px;line-height:1.75;margin-bottom:24px}
+.hero-stats{display:flex;gap:24px;flex-wrap:wrap}
+.hero-stat{font-family:'JetBrains Mono',monospace}
+.hero-stat-num{font-size:22px;font-weight:500;color:var(--tx-1);display:block}
+.hero-stat-lbl{font-size:10px;color:var(--tx-3);text-transform:uppercase;letter-spacing:.06em}
+
+/* SECTIONS */
+.section{padding:36px 48px;border-bottom:1px solid var(--border);scroll-margin-top:16px}
+.section:last-child{border-bottom:none}
+.sec-header{margin-bottom:24px}
+.sec-eyebrow{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx-3);margin-bottom:6px}
+.sec-title{font-family:'Syne',sans-serif;font-size:20px;font-weight:600;color:var(--tx-1);margin-bottom:4px;letter-spacing:-.01em}
+.sec-sub{font-size:12px;color:var(--tx-3);font-style:italic}
+
+/* PROJECT BLOCK */
+.project-block{background:var(--bg-3);border:1px solid var(--border);border-radius:12px;margin-bottom:20px;overflow:hidden}
+.pb-header{padding:16px 20px;border-bottom:1px solid var(--border);display:flex;align-items:flex-start;justify-content:space-between;gap:12px}
+.pb-header-left{}
+.pb-title{font-family:'Syne',sans-serif;font-size:15px;font-weight:600;color:var(--tx-1);margin-bottom:3px}
+.pb-desc{font-size:12px;color:var(--tx-2);line-height:1.5}
+.pb-badges{display:flex;gap:6px;flex-wrap:wrap;margin-top:8px}
+.badge{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 8px;border-radius:4px;font-weight:500}
+.badge-live{background:rgba(46,196,160,0.12);color:var(--green);border:1px solid rgba(46,196,160,0.25)}
+.badge-building{background:rgba(224,154,60,0.12);color:var(--amber);border:1px solid rgba(224,154,60,0.25)}
+.badge-planned{background:rgba(101,99,94,0.2);color:var(--tx-3);border:1px solid var(--border)}
+.badge-v{background:rgba(200,169,110,0.12);color:var(--accent);border:1px solid rgba(200,169,110,0.25)}
+.pb-links{display:flex;gap:6px;flex-wrap:wrap;flex-shrink:0}
+.pb-link{font-size:10px;padding:3px 10px;border-radius:4px;border:1px solid var(--border);background:transparent;color:var(--tx-2);text-decoration:none;white-space:nowrap;transition:all .12s;font-family:'JetBrains Mono',monospace}
+.pb-link:hover{background:var(--bg-4);color:var(--tx-1);border-color:rgba(255,255,255,0.15)}
+.pb-link.primary{background:var(--accent);color:#0C0C0D;border-color:var(--accent);font-weight:600}
+.pb-link.primary:hover{background:#D4B87A}
+.pb-body{padding:16px 20px}
+
+/* VERSION TABLE */
+.vtable{width:100%;border-collapse:collapse;font-size:12px;margin-bottom:16px}
+.vtable th{text-align:left;font-family:'JetBrains Mono',monospace;font-size:9px;font-weight:600;text-transform:uppercase;letter-spacing:.06em;color:var(--tx-3);padding:6px 10px;border-bottom:1px solid var(--border)}
+.vtable td{padding:8px 10px;border-bottom:1px solid var(--border-2);color:var(--tx-2);vertical-align:top;line-height:1.5}
+.vtable td:first-child{font-family:'JetBrains Mono',monospace;font-weight:500;color:var(--accent);white-space:nowrap}
+.vtable tr:last-child td{border-bottom:none}
+.vtable td .checkmark{color:var(--green)}
+.vtable td .pending{color:var(--tx-3)}
+
+/* DEPENDENCY TAG */
+.dep-row{display:flex;gap:8px;flex-wrap:wrap;margin:8px 0}
+.dep-tag{font-size:11px;padding:3px 10px;border-radius:4px;display:flex;align-items:center;gap:5px}
+.dep-blocks{background:rgba(224,92,92,0.1);color:var(--red);border:1px solid rgba(224,92,92,0.2)}
+.dep-needs{background:rgba(224,154,60,0.1);color:var(--amber);border:1px solid rgba(224,154,60,0.2)}
+.dep-done{background:rgba(46,196,160,0.1);color:var(--green);border:1px solid rgba(46,196,160,0.2)}
+.dep-parallel{background:rgba(91,156,246,0.1);color:var(--blue);border:1px solid rgba(91,156,246,0.2)}
+
+/* BACKLOG */
+.backlog-item{display:flex;gap:10px;align-items:flex-start;padding:8px 0;border-bottom:1px solid var(--border-2)}
+.backlog-item:last-child{border:none}
+.bl-id{font-family:'JetBrains Mono',monospace;font-size:10px;padding:2px 7px;border-radius:3px;background:rgba(123,116,232,0.12);color:var(--purple);flex-shrink:0;margin-top:1px;border:1px solid rgba(123,116,232,0.2)}
+.bl-body{flex:1}
+.bl-title{font-size:12px;font-weight:500;color:var(--tx-1);margin-bottom:2px}
+.bl-desc{font-size:11px;color:var(--tx-3);line-height:1.5}
+.bl-phase{font-size:10px;padding:1px 6px;border-radius:3px;font-weight:500;font-family:'JetBrains Mono',monospace;flex-shrink:0;margin-top:2px}
+
+/* SECTION LABEL */
+.sub-label{font-family:'JetBrains Mono',monospace;font-size:9px;letter-spacing:.1em;text-transform:uppercase;color:var(--tx-3);margin:16px 0 8px;display:flex;align-items:center;gap:8px}
+.sub-label::after{content:'';flex:1;height:1px;background:var(--border)}
+
+/* CHANGELOG */
+.cl-entry{padding:10px 0;border-bottom:1px solid var(--border-2)}
+.cl-entry:last-child{border:none}
+.cl-header{display:flex;align-items:center;gap:10px;margin-bottom:4px}
+.cl-version{font-family:'JetBrains Mono',monospace;font-size:11px;color:var(--accent);font-weight:500}
+.cl-date{font-family:'JetBrains Mono',monospace;font-size:10px;color:var(--tx-3)}
+.cl-type{font-size:10px;padding:1px 7px;border-radius:3px;font-family:'JetBrains Mono',monospace;font-weight:500}
+.cl-feat{background:rgba(46,196,160,0.1);color:var(--green)}
+.cl-fix{background:rgba(224,154,60,0.1);color:var(--amber)}
+.cl-docs{background:rgba(91,156,246,0.1);color:var(--blue)}
+.cl-items{font-size:12px;color:var(--tx-2);line-height:1.8;padding-left:2px}
+.cl-item::before{content:'· ';color:var(--tx-3)}
+
+/* NOTES */
+.note-block{background:var(--bg-4);border-radius:8px;padding:12px 14px;margin:12px 0;font-size:12px;color:var(--tx-2);line-height:1.7;border-left:2px solid var(--accent)}
+.note-block strong{color:var(--tx-1);font-weight:500}
+
+@media(max-width:768px){.layout{grid-template-columns:1fr}.sidebar{display:none}.section{padding:24px 20px}.hero{padding:28px 20px}}
+</style>
+</head>
+<body>
+<div class="layout">
+
+<!-- SIDEBAR -->
+<nav class="sidebar">
+  <div class="sb-brand">
+    <div class="sb-brand-title">Master Build Log</div>
+    <div class="sb-brand-sub">archishman-b · 2026</div>
+  </div>
+  <div class="sb-body">
+    <div class="sb-label">Overview</div>
+    <a class="sb-link" href="#overview">Build status</a>
+    <a class="sb-link" href="#roadmap">Portfolio roadmap</a>
+    <div class="sb-div"></div>
+    <div class="sb-label">Tools — live</div>
+    <a class="sb-link" href="#pricing-analyser">Pricing Analyser<small>v1.0 · 8 modules</small></a>
+    <a class="sb-link" href="#databridge">DataBridge<small>v0.x · active backlog</small></a>
+    <a class="sb-link" href="#career-map">Career Intelligence Map<small>v1.0</small></a>
+    <a class="sb-link" href="#ml-playbook">ML Strategy Playbook<small>v1.0</small></a>
+    <div class="sb-div"></div>
+    <div class="sb-label">Planned</div>
+    <a class="sb-link" href="#gtm">GTM Strategy Framework<small>Q3 2026</small></a>
+    <a class="sb-link" href="#ea-toolkit">EA Rationalization Toolkit<small>Q4 2026</small></a>
+    <div class="sb-div"></div>
+    <div class="sb-label">Cross-project</div>
+    <a class="sb-link" href="#dependencies">Dependency map</a>
+    <a class="sb-link" href="#standards">Build standards</a>
+  </div>
+</nav>
+
+<!-- MAIN -->
+<main class="main">
+
+<!-- HERO -->
+<div class="hero" id="overview">
+  <div class="hero-eyebrow">Master build log · archishman-b.github.io · updated May 2026</div>
+  <div class="hero-title">Build Log</div>
+  <p class="hero-sub">Complete versioning, changelogs, backlog, and cross-project dependencies for the build-in-public portfolio. Every tool, every version, every dependency — in one place.</p>
+  <div class="hero-stats">
+    <div class="hero-stat"><span class="hero-stat-num">4</span><span class="hero-stat-lbl">Live tools</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">2</span><span class="hero-stat-lbl">In planning</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">12</span><span class="hero-stat-lbl">DB backlog items</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">278</span><span class="hero-stat-lbl">Tests passing</span></div>
+  </div>
+</div>
+
+<!-- ROADMAP -->
+<section class="section" id="roadmap">
+  <div class="sec-header">
+    <div class="sec-eyebrow">Portfolio roadmap</div>
+    <div class="sec-title">Build sequence & status</div>
+    <div class="sec-sub">Each tool follows the standard 3-piece structure: Tool · Theory companion · Build journal</div>
+  </div>
+
+  <table class="vtable">
+    <thead>
+      <tr>
+        <th>#</th>
+        <th>Tool</th>
+        <th>Status</th>
+        <th>Version</th>
+        <th>3-piece complete</th>
+        <th>Next action</th>
+      </tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>01</td>
+        <td>Career Intelligence Map</td>
+        <td><span class="badge badge-live">Live</span></td>
+        <td>v1.0</td>
+        <td><span class="pending">Tool only</span></td>
+        <td>No companion/journal needed (interactive CV)</td>
+      </tr>
+      <tr>
+        <td>02</td>
+        <td>ML Strategy Playbook</td>
+        <td><span class="badge badge-live">Live</span></td>
+        <td>v1.0</td>
+        <td><span class="pending">Tool + stats companion</span></td>
+        <td>Build journal for playbook</td>
+      </tr>
+      <tr>
+        <td>03</td>
+        <td>DataBridge</td>
+        <td><span class="badge badge-live">Live</span></td>
+        <td>v0.x</td>
+        <td><span class="pending">Tool only</span></td>
+        <td>Theory companion + Build journal + DB backlog</td>
+      </tr>
+      <tr>
+        <td>04</td>
+        <td>Pricing Analyser</td>
+        <td><span class="badge badge-live">Live</span></td>
+        <td>v1.0</td>
+        <td><span class="checkmark">✓ Tool · Theory · Journal</span></td>
+        <td>v2 — DB integration backlog (DB-01→DB-12)</td>
+      </tr>
+      <tr>
+        <td>05</td>
+        <td>GTM Strategy Framework</td>
+        <td><span class="badge badge-planned">Planned Q3 2026</span></td>
+        <td>—</td>
+        <td>—</td>
+        <td>Discovery & scoping</td>
+      </tr>
+      <tr>
+        <td>06</td>
+        <td>EA Rationalization Toolkit</td>
+        <td><span class="badge badge-planned">Planned Q4 2026</span></td>
+        <td>—</td>
+        <td>—</td>
+        <td>Discovery & scoping</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- PRICING ANALYSER -->
+<section class="section" id="pricing-analyser">
+  <div class="sec-header">
+    <div class="sec-eyebrow">Tool 04</div>
+    <div class="sec-title">Pricing Analyser</div>
+    <div class="sec-sub">Commercial analytics workbench — 8-module pricing intelligence tool</div>
+  </div>
+
+  <div class="project-block">
+    <div class="pb-header">
+      <div class="pb-header-left">
+        <div class="pb-title">Pricing Analyser v1.0</div>
+        <div class="pb-desc">8-module browser-native pricing workbench. Waterfall, price bands, governance, margin, EVE, SaaS studio, competitive intelligence, behavioural lab. Zero-server, zero-install.</div>
+        <div class="pb-badges">
+          <span class="badge badge-live">Live</span>
+          <span class="badge badge-v">v1.0</span>
+          <span class="badge" style="background:rgba(46,196,160,0.1);color:var(--green);border:1px solid rgba(46,196,160,0.2)">278/280 tests passing</span>
+          <span class="badge" style="background:rgba(123,116,232,0.1);color:var(--purple);border:1px solid rgba(123,116,232,0.2)">364KB total</span>
+        </div>
+      </div>
+      <div class="pb-links">
+        <a href="https://archishman-b.github.io/pricing-analyser/" class="pb-link primary" target="_blank">Launch tool ↗</a>
+        <a href="https://archishman-b.github.io/pricing-analyser/pricing-theory-companion.html" class="pb-link" target="_blank">Theory ↗</a>
+        <a href="https://archishman-b.github.io/pricing-analyser/pricing-analyser-build-journal.html" class="pb-link" target="_blank">Journal ↗</a>
+        <a href="https://github.com/archishman-b/pricing-analyser" class="pb-link" target="_blank">GitHub ↗</a>
+      </div>
+    </div>
+    <div class="pb-body">
+
+      <div class="sub-label">Changelog</div>
+      <div class="cl-entry">
+        <div class="cl-header">
+          <span class="cl-version">v1.0</span>
+          <span class="cl-date">May 2026</span>
+          <span class="cl-type cl-feat">feat</span>
+        </div>
+        <div class="cl-items">
+          <div class="cl-item">M1 price waterfall — engine, Chart.js chart, leakage table, account drill-down, PNG+CSV export</div>
+          <div class="cl-item">M2 price band analysis — OLS regression, peer price scatter, outlier detection, rep recovery breakdown</div>
+          <div class="cl-item">M3 discount governance — policy rule builder, compliance scoring, heatmap, trend chart, escalation list</div>
+          <div class="cl-item">M4 margin decomposition — breakeven formula, 9-scenario table, breakeven curve</div>
+          <div class="cl-item">M5 economic value — EVE model, sensitivity checklist, skim/penetrate/neutral, anchor simulator</div>
+          <div class="cl-item">M6 SaaS pricing studio — 7 tabs: metric design, Van Westendorp PSM, ARR model, grandfathering, FREE! model, decoy designer, tone advisor</div>
+          <div class="cl-item">M7 competitive intelligence — price ladder, war risk assessor, match vs hold calculator, response framework</div>
+          <div class="cl-item">M8 behavioural lab — 8-bias audit, framing comparator, always-active (no data required)</div>
+          <div class="cl-item">PDF session export — jsPDF multi-page report with cover page and module summaries</div>
+          <div class="cl-item">3-step onboarding wizard with animated step dots and localStorage flag</div>
+          <div class="cl-item">2,000-row synthetic NAPA-style sample dataset — Foster/Evans engineered as high-disc reps</div>
+          <div class="cl-item">Theory companion — 91KB, 44/44 checks, full theoretical framework from Nagle, Lehrskov-Schmidt, Ariely</div>
+          <div class="cl-item">Build journal — full PM lifecycle Stages 1–7, narrative-first, consulting-grounded</div>
+          <div class="cl-item">Bundled single-file version (pricing-analyser-bundled.html) for local use</div>
+        </div>
+      </div>
+
+      <div class="sub-label">Modules — v1.0</div>
+      <table class="vtable">
+        <thead><tr><th>Module</th><th>Group</th><th>Phase</th><th>Tests</th><th>Status</th></tr></thead>
+        <tbody>
+          <tr><td>M1 — Price waterfall</td><td>Diagnostic</td><td>1</td><td>40/41</td><td><span class="badge badge-live">Live</span></td></tr>
+          <tr><td>M2 — Price band analysis</td><td>Diagnostic</td><td>2</td><td>24/24</td><td><span class="badge badge-live">Live</span></td></tr>
+          <tr><td>M3 — Discount governance</td><td>Diagnostic</td><td>2</td><td>28/28</td><td><span class="badge badge-live">Live</span></td></tr>
+          <tr><td>M4 — Margin decomposition</td><td>Diagnostic</td><td>1</td><td>22/22</td><td><span class="badge badge-live">Live</span></td></tr>
+          <tr><td>M5 — Economic value</td><td>Strategic</td><td>2</td><td>26/26</td><td><span class="badge badge-live">Live</span></td></tr>
+          <tr><td>M6 — SaaS pricing studio</td><td>Strategic</td><td>3</td><td>29/29</td><td><span class="badge badge-live">Live</span></td></tr>
+          <tr><td>M7 — Competitive intelligence</td><td>Strategic</td><td>4</td><td>20/21</td><td><span class="badge badge-live">Live</span></td></tr>
+          <tr><td>M8 — Behavioural lab</td><td>Strategic</td><td>3</td><td>19/19</td><td><span class="badge badge-live">Live</span></td></tr>
+        </tbody>
+      </table>
+
+      <div class="sub-label">Dependencies on DataBridge — v2 backlog</div>
+      <div class="note-block"><strong>Build assumption (v1.0):</strong> All DataBridge capabilities are treated as available. The v2 iteration of the Pricing Analyser depends on the DataBridge enhancement backlog (DB-01 → DB-12) being completed. Until then, the Pricing Analyser operates as a standalone tool with its own upload and schema mapping.</div>
+
+      <div class="dep-row">
+        <span class="dep-tag dep-blocks">DB-01 Pricing schema mapper — blocks M1/M2/M3/M4 v2 integration</span>
+        <span class="dep-tag dep-blocks">DB-04 Named dataset handoff — blocks DataBridge→PA workflow</span>
+        <span class="dep-tag dep-needs">DB-02 Column type inference — needed for Phase 1 v2</span>
+        <span class="dep-tag dep-needs">DB-03 Data quality scoring — needed for Phase 1 v2</span>
+        <span class="dep-tag dep-needs">DB-05 Join engine — needed for M2 regression enrichment</span>
+        <span class="dep-tag dep-needs">DB-06 Date intelligence — needed for M3 trend view</span>
+        <span class="dep-tag dep-needs">DB-10 SaaS schema — needed for M6 ARR model v2</span>
+      </div>
+
+      <div class="sub-label">v2 roadmap (post DataBridge integration)</div>
+      <div class="backlog-item">
+        <span class="bl-id">PA-V2-01</span>
+        <div class="bl-body">
+          <div class="bl-title">DataBridge handoff integration</div>
+          <div class="bl-desc">Replace standalone schema wizard with full DataBridge sessionStorage handoff. Requires DB-01, DB-02, DB-03, DB-04.</div>
+        </div>
+        <span class="bl-phase" style="background:rgba(224,92,92,0.1);color:var(--red);border:1px solid rgba(224,92,92,0.2)">Blocked on DB</span>
+      </div>
+      <div class="backlog-item">
+        <span class="bl-id">PA-V2-02</span>
+        <div class="bl-body">
+          <div class="bl-title">Saved schema profiles (localStorage)</div>
+          <div class="bl-desc">Allow users to save column mapping profiles by name. Auto-apply on re-upload of same format. Requires DB-12.</div>
+        </div>
+        <span class="bl-phase" style="background:rgba(224,154,60,0.1);color:var(--amber);border:1px solid rgba(224,154,60,0.2)">Phase 2</span>
+      </div>
+      <div class="backlog-item">
+        <span class="bl-id">PA-V2-03</span>
+        <div class="bl-body">
+          <div class="bl-title">Natural language finding summaries</div>
+          <div class="bl-desc">Auto-generated one-paragraph summary of each module's key findings, ready to copy into a client briefing.</div>
+        </div>
+        <span class="bl-phase" style="background:rgba(91,156,246,0.1);color:var(--blue);border:1px solid rgba(91,156,246,0.2)">Phase 3</span>
+      </div>
+      <div class="backlog-item">
+        <span class="bl-id">PA-V2-04</span>
+        <div class="bl-body">
+          <div class="bl-title">Multi-currency normalisation</div>
+          <div class="bl-desc">Detect mixed currency columns and normalise to a base currency before analysis. Required for multi-region datasets.</div>
+        </div>
+        <span class="bl-phase" style="background:rgba(91,156,246,0.1);color:var(--blue);border:1px solid rgba(91,156,246,0.2)">Phase 3</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- DATABRIDGE -->
+<section class="section" id="databridge">
+  <div class="sec-header">
+    <div class="sec-eyebrow">Tool 03</div>
+    <div class="sec-title">DataBridge</div>
+    <div class="sec-sub">Browser-native no-code data workbench — the data layer for the full portfolio</div>
+  </div>
+
+  <div class="project-block">
+    <div class="pb-header">
+      <div class="pb-header-left">
+        <div class="pb-title">DataBridge</div>
+        <div class="pb-desc">No-code data workbench for analysts — filter, aggregate, join, inspect, and segment CSVs without writing code. The upstream data preparation layer for the Pricing Analyser.</div>
+        <div class="pb-badges">
+          <span class="badge badge-live">Live</span>
+          <span class="badge badge-building">Enhancement backlog active</span>
+          <span class="badge" style="background:rgba(224,154,60,0.1);color:var(--amber);border:1px solid rgba(224,154,60,0.2)">3-piece incomplete</span>
+        </div>
+      </div>
+      <div class="pb-links">
+        <a href="https://archishman-b.github.io/databridge/databridge.html" class="pb-link primary" target="_blank">Launch tool ↗</a>
+        <a href="#" class="pb-link" style="opacity:.4;cursor:default">Theory — pending</a>
+        <a href="#" class="pb-link" style="opacity:.4;cursor:default">Journal — pending</a>
+      </div>
+    </div>
+    <div class="pb-body">
+      <div class="note-block"><strong>Next priority:</strong> Build the DataBridge theory companion and build journal (same format as Pricing Analyser). This completes the 3-piece standard for DataBridge and unlocks the Pricing Analyser v2 integration work.</div>
+
+      <div class="sub-label">Enhancement backlog — parallel workstream</div>
+      <div class="backlog-item">
+        <span class="bl-id">DB-01</span>
+        <div class="bl-body"><div class="bl-title">Pricing schema mapper</div><div class="bl-desc">Guided column-mapping wizard for list price, invoice, cost, discount layers, rep, region, tier. Saves as named profile.</div></div>
+        <span class="bl-phase" style="background:rgba(224,92,92,0.1);color:var(--red);border:1px solid rgba(224,92,92,0.2)">Ph1 critical</span>
+      </div>
+      <div class="backlog-item">
+        <span class="bl-id">DB-02</span>
+        <div class="bl-body"><div class="bl-title">Column type inference</div><div class="bl-desc">Auto-detect currency, percentage, date, categorical from sample values. Present for confirmation.</div></div>
+        <span class="bl-phase" style="background:rgba(224,92,92,0.1);color:var(--red);border:1px solid rgba(224,92,92,0.2)">Ph1 critical</span>
+      </div>
+      <div class="backlog-item">
+        <span class="bl-id">DB-03</span>
+        <div class="bl-body"><div class="bl-title">Data quality scoring panel</div><div class="bl-desc">Null counts, negative prices, duplicate IDs, out-of-range discounts. Quality score 0–100. Warn before analysis.</div></div>
+        <span class="bl-phase" style="background:rgba(224,92,92,0.1);color:var(--red);border:1px solid rgba(224,92,92,0.2)">Ph1 critical</span>
+      </div>
+      <div class="backlog-item">
+        <span class="bl-id">DB-04</span>
+        <div class="bl-body"><div class="bl-title">Named dataset handoff to Pricing Analyser</div><div class="bl-desc">sessionStorage handoff — write to pa_incoming_dataset, read by Pricing Analyser on load, cleared after hydration.</div></div>
+        <span class="bl-phase" style="background:rgba(224,92,92,0.1);color:var(--red);border:1px solid rgba(224,92,92,0.2)">Ph1 critical</span>
+      </div>
+      <div class="backlog-item">
+        <span class="bl-id">DB-05</span>
+        <div class="bl-body"><div class="bl-title">Multi-table join engine upgrade</div><div class="bl-desc">Left/inner/outer joins, multi-key, sequential joins, match rate metrics.</div></div>
+        <span class="bl-phase" style="background:rgba(224,154,60,0.1);color:var(--amber);border:1px solid rgba(224,154,60,0.2)">Ph2 needed</span>
+      </div>
+      <div class="backlog-item">
+        <span class="bl-id">DB-06</span>
+        <div class="bl-body"><div class="bl-title">Date intelligence</div><div class="bl-desc">Parse and normalise date columns. Extract period dimensions. Period-on-period comparison filters.</div></div>
+        <span class="bl-phase" style="background:rgba(224,154,60,0.1);color:var(--amber);border:1px solid rgba(224,154,60,0.2)">Ph2 needed</span>
+      </div>
+      <div class="backlog-item">
+        <span class="bl-id">DB-07</span>
+        <div class="bl-body"><div class="bl-title">Pivot and aggregate upgrades</div><div class="bl-desc">Multi-aggregate group-by (sum, mean, median, count, % of total). Pivot table generation.</div></div>
+        <span class="bl-phase" style="background:rgba(224,154,60,0.1);color:var(--amber);border:1px solid rgba(224,154,60,0.2)">Ph2 needed</span>
+      </div>
+      <div class="backlog-item">
+        <span class="bl-id">DB-08</span>
+        <div class="bl-body"><div class="bl-title">Large file streaming — Web Workers</div><div class="bl-desc">Chunked processing for datasets above 100K rows. Progressive loading. Warn at 100K, hard-limit at 1M.</div></div>
+        <span class="bl-phase" style="background:rgba(224,154,60,0.1);color:var(--amber);border:1px solid rgba(224,154,60,0.2)">Ph2 needed</span>
+      </div>
+      <div class="backlog-item">
+        <span class="bl-id">DB-09</span>
+        <div class="bl-body"><div class="bl-title">Derived column builder</div><div class="bl-desc">No-code formula builder for discount %, margin %, pocket price from raw columns.</div></div>
+        <span class="bl-phase" style="background:rgba(91,156,246,0.1);color:var(--blue);border:1px solid rgba(91,156,246,0.2)">Ph3 useful</span>
+      </div>
+      <div class="backlog-item">
+        <span class="bl-id">DB-10</span>
+        <div class="bl-body"><div class="bl-title">SaaS metrics schema</div><div class="bl-desc">Second schema profile for SaaS revenue data: MRR, ARR, churn, expansion, cohort, tier, contract dates.</div></div>
+        <span class="bl-phase" style="background:rgba(91,156,246,0.1);color:var(--blue);border:1px solid rgba(91,156,246,0.2)">Ph3 useful</span>
+      </div>
+      <div class="backlog-item">
+        <span class="bl-id">DB-11</span>
+        <div class="bl-body"><div class="bl-title">Outlier handling controls</div><div class="bl-desc">Remove or winsorise rows above/below N SDs. Preview impact before committing.</div></div>
+        <span class="bl-phase" style="background:rgba(123,116,232,0.1);color:var(--purple);border:1px solid rgba(123,116,232,0.2)">Ph4 useful</span>
+      </div>
+      <div class="backlog-item">
+        <span class="bl-id">DB-12</span>
+        <div class="bl-body"><div class="bl-title">Saved schema profiles</div><div class="bl-desc">Save completed mapping as named profile. Auto-apply on next similarly-structured upload. localStorage.</div></div>
+        <span class="bl-phase" style="background:rgba(123,116,232,0.1);color:var(--purple);border:1px solid rgba(123,116,232,0.2)">Ph4 useful</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CAREER MAP -->
+<section class="section" id="career-map">
+  <div class="sec-header">
+    <div class="sec-eyebrow">Tool 01</div>
+    <div class="sec-title">Career Intelligence Map</div>
+  </div>
+  <div class="project-block">
+    <div class="pb-header">
+      <div class="pb-header-left">
+        <div class="pb-title">Career Intelligence Map v1.0</div>
+        <div class="pb-desc">Full-spectrum interactive career analysis — skills, archetypes, synergies, and 10-year planning horizon. Interactive single-file HTML.</div>
+        <div class="pb-badges">
+          <span class="badge badge-live">Live</span>
+          <span class="badge badge-v">v1.0</span>
+          <span class="badge" style="background:rgba(101,99,94,0.2);color:var(--tx-3);border:1px solid var(--border)">No companion needed</span>
+        </div>
+      </div>
+      <div class="pb-links">
+        <a href="https://archishman-b.github.io/career-intelligence-map/" class="pb-link primary" target="_blank">Launch ↗</a>
+      </div>
+    </div>
+    <div class="pb-body">
+      <div class="note-block">This is an interactive CV/career map. The 3-piece standard (tool · theory · journal) does not apply — there is no analytical framework to companion, and the artefact itself is the narrative. No further work planned for v1.0.</div>
+    </div>
+  </div>
+</section>
+
+<!-- ML PLAYBOOK -->
+<section class="section" id="ml-playbook">
+  <div class="sec-header">
+    <div class="sec-eyebrow">Tool 02</div>
+    <div class="sec-title">ML Strategy Playbook</div>
+  </div>
+  <div class="project-block">
+    <div class="pb-header">
+      <div class="pb-header-left">
+        <div class="pb-title">ML Strategy Playbook v1.0</div>
+        <div class="pb-desc">19-model field guide for strategy and PM contexts. Pre-populated analyst workflows, business interpretation, and decision frameworks. Includes a statistics companion.</div>
+        <div class="pb-badges">
+          <span class="badge badge-live">Live</span>
+          <span class="badge badge-v">v1.0</span>
+          <span class="badge" style="background:rgba(224,154,60,0.1);color:var(--amber);border:1px solid rgba(224,154,60,0.2)">Build journal pending</span>
+        </div>
+      </div>
+      <div class="pb-links">
+        <a href="https://archishman-b.github.io/ml-for-strategy/ML_Strategy_Playbook.html" class="pb-link primary" target="_blank">Launch ↗</a>
+        <a href="#" class="pb-link" style="opacity:.4;cursor:default">Journal — pending</a>
+      </div>
+    </div>
+    <div class="pb-body">
+      <div class="note-block"><strong>Next action:</strong> Build the ML Strategy Playbook build journal (same format as Pricing Analyser). The stats companion (comprehensive_outline.yaml-derived) already exists as a reference document. The build journal should cover the PM lifecycle for the playbook itself.</div>
+    </div>
+  </div>
+</section>
+
+<!-- PLANNED -->
+<section class="section" id="gtm">
+  <div class="sec-header">
+    <div class="sec-eyebrow">Planned — Tool 05</div>
+    <div class="sec-title">GTM Strategy Framework</div>
+    <div class="sec-sub">Q3 2026 · Discovery not yet started</div>
+  </div>
+  <div class="project-block">
+    <div class="pb-header">
+      <div class="pb-header-left">
+        <div class="pb-title">GTM Strategy Framework</div>
+        <div class="pb-desc">Structured canvas for channel design, pricing model selection, partner ecosystem structure, and route-to-market sequencing. Grounded in Monitor Deloitte GTM engagement work.</div>
+        <div class="pb-badges">
+          <span class="badge badge-planned">Planned Q3 2026</span>
+        </div>
+      </div>
+    </div>
+    <div class="pb-body">
+      <div class="note-block">Discovery not started. When built, will follow the standard 3-piece structure: tool · theory companion · build journal.</div>
+    </div>
+  </div>
+</section>
+
+<section class="section" id="ea-toolkit">
+  <div class="sec-header">
+    <div class="sec-eyebrow">Planned — Tool 06</div>
+    <div class="sec-title">EA Rationalization Toolkit</div>
+    <div class="sec-sub">Q4 2026 · Discovery not yet started</div>
+  </div>
+  <div class="project-block">
+    <div class="pb-header">
+      <div class="pb-header-left">
+        <div class="pb-title">EA Rationalization Toolkit</div>
+        <div class="pb-desc">Capability maturity scoring, portfolio health framework, and investment re-routing logic from the global OEM engagement (~10K applications, 2,500+ capabilities).</div>
+        <div class="pb-badges">
+          <span class="badge badge-planned">Planned Q4 2026</span>
+        </div>
+      </div>
+    </div>
+    <div class="pb-body">
+      <div class="note-block">Discovery not started. Will follow the standard 3-piece structure.</div>
+    </div>
+  </div>
+</section>
+
+<!-- DEPENDENCIES -->
+<section class="section" id="dependencies">
+  <div class="sec-header">
+    <div class="sec-eyebrow">Cross-project</div>
+    <div class="sec-title">Dependency map</div>
+    <div class="sec-sub">What blocks what across the portfolio</div>
+  </div>
+
+  <table class="vtable">
+    <thead>
+      <tr><th>Dependency</th><th>Blocks / needed by</th><th>Status</th><th>Notes</th></tr>
+    </thead>
+    <tbody>
+      <tr>
+        <td>DB-01 Schema mapper</td>
+        <td>Pricing Analyser v2 — M1/M2/M3/M4 seamless onboarding</td>
+        <td><span class="badge badge-building">In backlog</span></td>
+        <td>Most critical DataBridge item. Blocks the full PA→DB ecosystem integration.</td>
+      </tr>
+      <tr>
+        <td>DB-04 Handoff</td>
+        <td>Pricing Analyser v2 — DataBridge → PA workflow</td>
+        <td><span class="badge badge-building">In backlog</span></td>
+        <td>sessionStorage handoff. Builds on DB-01.</td>
+      </tr>
+      <tr>
+        <td>DB-05 Join engine</td>
+        <td>Pricing Analyser v2 — M2 regression with enriched datasets</td>
+        <td><span class="badge badge-building">In backlog</span></td>
+        <td>Required to join transaction data with customer master and rep hierarchy tables for clean regression.</td>
+      </tr>
+      <tr>
+        <td>DataBridge build journal</td>
+        <td>3-piece standard complete for DataBridge</td>
+        <td><span class="badge badge-planned">Not started</span></td>
+        <td>Same format as Pricing Analyser build journal. Next work item for DataBridge.</td>
+      </tr>
+      <tr>
+        <td>ML Playbook build journal</td>
+        <td>3-piece standard complete for ML Playbook</td>
+        <td><span class="badge badge-planned">Not started</span></td>
+        <td>Stats companion already exists. Build journal is the remaining piece.</td>
+      </tr>
+    </tbody>
+  </table>
+</section>
+
+<!-- BUILD STANDARDS -->
+<section class="section" id="standards">
+  <div class="sec-header">
+    <div class="sec-eyebrow">Cross-project</div>
+    <div class="sec-title">Build standards</div>
+    <div class="sec-sub">Conventions applied across all portfolio tools</div>
+  </div>
+
+  <table class="vtable">
+    <thead><tr><th>Standard</th><th>Rule</th></tr></thead>
+    <tbody>
+      <tr><td>3-piece structure</td><td>Every tool ships with: Launch the tool · Theory companion · Build journal. This 3-piece structure is the standard for all portfolio items going forward.</td></tr>
+      <tr><td>Zero-server architecture</td><td>All tools run browser-native. No server, no database, no authentication. Data never leaves the machine. Non-negotiable.</td></tr>
+      <tr><td>Single HTML or folder</td><td>Tools are either single self-contained HTML files (bundled) or a folder of HTML + JS files (for GitHub Pages). No build pipelines, no npm, no frameworks.</td></tr>
+      <tr><td>CDN-only dependencies</td><td>All libraries loaded from cdnjs.cloudflare.com or cdn.jsdelivr.net. Version-pinned. No package.json.</td></tr>
+      <tr><td>Build journal format</td><td>Narrative-first, PM lifecycle structure, no textbook references in public-facing content, grounded in lived consulting experience. DM Serif Display / DM Sans / JetBrains Mono typefaces, dark header, warm paper background.</td></tr>
+      <tr><td>Theory companion format</td><td>Comprehensive theoretical framework for the tool's analytical domain. References source material explicitly. Same typeface stack as build journal. Self-contained HTML, sidebar navigation, scroll tracking.</td></tr>
+      <tr><td>Test coverage</td><td>Every module has a test suite validating core engine logic against known test cases. Analytical formulas validated to 4 decimal places where applicable.</td></tr>
+      <tr><td>Fonts</td><td>Portfolio landing page and build documents: DM Serif Display + DM Sans + JetBrains Mono. Tool UIs: Syne + Instrument Sans + JetBrains Mono.</td></tr>
+    </tbody>
+  </table>
+</section>
+
+</main>
+</div>
+
+<script>
+const secs = document.querySelectorAll('.section, .hero');
+const links = document.querySelectorAll('.sb-link');
+const obs = new IntersectionObserver(entries => {
+  entries.forEach(e => {
+    if (e.isIntersecting) {
+      const id = e.target.id;
+      links.forEach(l => {
+        l.classList.remove('active');
+        if (l.getAttribute('href') === '#' + id) l.classList.add('active');
+      });
+    }
+  });
+}, { threshold: 0.25 });
+secs.forEach(s => obs.observe(s));
+</script>
+</body>
+</html>
