@@ -180,13 +180,13 @@ footer{border-top:1px solid var(--border);padding:28px 0;display:flex;align-item
 .p-card.locked .p-graphic{opacity:.22}
 
 /* Trio action row */
-.p-trio{display:flex;align-items:center;gap:6px;flex-wrap:wrap;margin-top:16px;padding-top:12px;border-top:1px solid var(--border)}
-.trio-btn{font-family:var(--display);font-size:11px;font-weight:600;letter-spacing:.03em;padding:4px 10px;border-radius:4px;text-decoration:none;border:1px solid var(--border2);transition:all .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:4px;line-height:1}
+.p-trio{display:flex;align-items:center;gap:5px;flex-wrap:nowrap;margin-top:16px;padding-top:12px;border-top:1px solid var(--border);overflow:hidden}
+.trio-btn{font-family:var(--display);font-size:10px;font-weight:600;letter-spacing:.02em;padding:3px 7px;border-radius:4px;text-decoration:none;border:1px solid var(--border2);transition:all .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:3px;line-height:1}
 .trio-btn.launch{background:var(--blue);color:#fff;border-color:var(--blue)}
 .trio-btn.launch:hover{background:#4979e2;transform:translateY(-1px)}
 .trio-btn.soft{background:transparent;color:var(--text2)}
 .trio-btn.soft:hover{color:var(--text);background:var(--surface2)}
-.trio-sep{width:3px;height:3px;border-radius:50%;background:var(--border2);flex-shrink:0}
+.trio-sep{width:2px;height:2px;border-radius:50%;background:var(--border2);flex-shrink:0}
 .trio-ghost{font-size:10px;color:var(--text3);font-style:italic}
 
 /* Highlighted (featured) portfolio card */
@@ -465,7 +465,9 @@ footer{border-top:1px solid var(--border);padding:28px 0;display:flex;align-item
       <div class="p-trio">
         <a class="trio-btn launch" href="https://archishman-b.github.io/databridge/databridge.html" target="_blank">↗ Open</a>
         <div class="trio-sep"></div>
-        <span class="trio-ghost">Theory · PM Journal coming</span>
+        <a class="trio-btn soft" href="https://archishman-b.github.io/databridge/databridge-theory-companion.html" target="_blank">Theory</a>
+        <div class="trio-sep"></div>
+        <a class="trio-btn soft" href="https://archishman-b.github.io/databridge/databridge-build-journal.html" target="_blank">PM Journal</a>
       </div>
     </div>
 
