@@ -1,205 +1,372 @@
-<!DOCTYPE html><html lang="en"><head>
+<!DOCTYPE html>
+<html lang="en">
+<head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <meta name="description" content="Archishman Bandyopadhyay — Strategy, Technology &amp; Product. 12 years across Tata Motors, Mahindra, Monitor Deloitte, and Accenture. Building in public.">
 <title>Archishman Bandyopadhyay</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;family=Space+Grotesk:wght@400;500;600;700&amp;family=Playfair+Display:ital,wght@0,500;1,400&amp;display=swap" rel="stylesheet">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&family=Playfair+Display:ital,wght@0,500;1,400&display=swap" rel="stylesheet">
 <style>
-/* ── ORIGINAL CSS — UNCHANGED ── */
 *,*::before,*::after{margin:0;padding:0;box-sizing:border-box}
 :root{
-  --bg:#08090f;--surface:#0e1118;--surface2:#141720;--surface3:#1c2030;
-  --border:#1e2438;--border2:#2a3350;
-  --blue:#5b8ef5;--blue-dim:rgba(91,141,245,0.11);--blue-border:rgba(91,141,245,0.22);
-  --amber:#f0a840;--amber-dim:rgba(240,168,64,0.10);--amber-border:rgba(240,168,64,0.2);
-  --teal:#34c9a0;--teal-dim:rgba(52,201,160,0.10);
-  --green:#34d399;
-  --text:#dde4f4;--text2:#7f92ae;--text3:#354560;
-  --serif:'Playfair Display',Georgia,serif;
+  --bg:#07080e;
+  --surface:#111318;
+  --surface2:#181c26;
+  --surface3:#1e2230;
+  --border:#222840;
+  --border2:#2e3650;
+  --border3:#3a4568;
+  --blue:#5b8ef5;--blue-dim:rgba(91,141,245,0.09);--blue-bd:rgba(91,141,245,0.22);
+  --amber:#e8a53c;--amber-dim:rgba(232,165,60,0.09);--amber-bd:rgba(232,165,60,0.22);
+  --teal:#2ec4a0;--teal-dim:rgba(46,196,160,0.09);
+  --green:#34d399;--red:#f87171;
+  --text:#dde4f4;--text2:#8898b8;--text3:#4a5878;--dim:#2a3248;
   --display:'Space Grotesk',system-ui,sans-serif;
+  --serif:'Playfair Display',Georgia,serif;
   --sans:'Inter',system-ui,sans-serif;
   --r:8px;
 }
 html.light{
-  --bg:#f7f6f2;--surface:#ffffff;--surface2:#f0eeea;--surface3:#e8e5df;
-  --border:#e0ddd6;--border2:#ccc9c0;
-  --blue:#2d5fc4;--blue-dim:rgba(45,95,196,0.08);--blue-border:rgba(45,95,196,0.2);
-  --amber:#a05e00;--amber-dim:rgba(160,94,0,0.08);--amber-border:rgba(160,94,0,0.2);
-  --teal:#0a7a5e;--teal-dim:rgba(10,122,94,0.08);--green:#0a7a5e;
-  --text:#0f1117;--text2:#4a5568;--text3:#9aa3b0;
+  --bg:#f5f3ee;
+  --surface:#ffffff;
+  --surface2:#f0ede6;
+  --surface3:#e6e2d8;
+  --border:#dddad2;--border2:#ccc9c0;--border3:#b8b4aa;
+  --blue:#2d5fc4;--blue-dim:rgba(45,95,196,0.07);--blue-bd:rgba(45,95,196,0.2);
+  --amber:#9a5500;--amber-dim:rgba(154,85,0,0.07);--amber-bd:rgba(154,85,0,0.2);
+  --teal:#0a7a5e;--teal-dim:rgba(10,122,94,0.07);--green:#0a7a5e;
+  --text:#0c0e14;--text2:#4a5568;--text3:#8a95a8;--dim:#d0cdc5;
+  /* light-mode specific overrides for meridian parent card */
+  --meridian-card-bg:#f8f6f1;
+  --meridian-mod-bg:#ffffff;
 }
-html.light body::before{background-image:linear-gradient(rgba(45,95,196,0.035) 1px,transparent 1px),linear-gradient(90deg,rgba(45,95,196,0.035) 1px,transparent 1px)}
-html.light body::after{background:radial-gradient(circle,rgba(45,95,196,0.04) 0%,transparent 68%)}
-html.light header{background:rgba(247,246,242,0.88)}
-html{scroll-behavior:smooth;font-size:15px}
-body{background:var(--bg);color:var(--text);font-family:var(--sans);line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
-body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(91,141,245,0.018) 1px,transparent 1px),linear-gradient(90deg,rgba(91,141,245,0.018) 1px,transparent 1px);background-size:52px 52px;pointer-events:none;z-index:0}
-body::after{content:'';position:fixed;top:-200px;left:-200px;width:600px;height:600px;background:radial-gradient(circle,rgba(91,141,245,0.05) 0%,transparent 68%);pointer-events:none;z-index:0}
-.wrap{max-width:860px;margin:0 auto;padding:0 24px;position:relative;z-index:1}
-header{border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(8,9,15,0.84);backdrop-filter:blur(16px);-webkit-backdrop-filter:blur(16px);z-index:100}
-nav{display:flex;align-items:center;justify-content:space-between;height:60px}
-.logo{font-family:var(--display);font-size:15px;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:-.01em}
+html{scroll-behavior:smooth}
+body{background:var(--bg);color:var(--text);font-family:var(--sans);font-size:15px;line-height:1.65;overflow-x:hidden;-webkit-font-smoothing:antialiased}
+body::before{content:'';position:fixed;inset:0;background-image:linear-gradient(rgba(91,141,245,0.016) 1px,transparent 1px),linear-gradient(90deg,rgba(91,141,245,0.016) 1px,transparent 1px);background-size:56px 56px;pointer-events:none;z-index:0}
+body::after{content:'';position:fixed;top:-240px;left:-180px;width:700px;height:700px;background:radial-gradient(circle,rgba(91,141,245,0.045) 0%,transparent 65%);pointer-events:none;z-index:0}
+html.light body::before{background-image:linear-gradient(rgba(45,95,196,0.025) 1px,transparent 1px),linear-gradient(90deg,rgba(45,95,196,0.025) 1px,transparent 1px);background-size:56px 56px}
+html.light body::after{background:radial-gradient(circle,rgba(45,95,196,0.03) 0%,transparent 65%)}
+.wrap{max-width:900px;margin:0 auto;padding:0 28px;position:relative;z-index:1}
+
+/* ── Header ── */
+header{border-bottom:1px solid var(--border);position:sticky;top:0;background:rgba(7,8,14,0.86);backdrop-filter:blur(18px);-webkit-backdrop-filter:blur(18px);z-index:100}
+html.light header{background:rgba(245,243,238,0.88)}
+nav{display:flex;align-items:center;justify-content:space-between;height:58px}
+.logo{font-family:var(--display);font-size:14px;font-weight:700;color:var(--text);text-decoration:none;letter-spacing:.02em}
 .logo em{color:var(--blue);font-style:normal}
-.nav-links{list-style:none;display:flex;gap:28px}
-.nav-links a{font-size:13px;color:var(--text2);text-decoration:none;transition:color .2s}
+.nav-links{list-style:none;display:flex;gap:26px}
+.nav-links a{font-size:12.5px;color:var(--text2);text-decoration:none;transition:color .18s;font-weight:500}
 .nav-links a:hover{color:var(--text)}
 .theme-toggle{background:none;border:1px solid var(--border2);border-radius:6px;color:var(--text2);cursor:pointer;width:32px;height:32px;display:flex;align-items:center;justify-content:center;transition:border-color .2s,color .2s;flex-shrink:0;margin-left:8px}
 .theme-toggle:hover{border-color:var(--blue);color:var(--text)}
 .theme-toggle svg{pointer-events:none;width:15px;height:15px}
-.hero{padding:86px 0 68px}
-.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--blue);margin-bottom:28px}
-.eyebrow::before{content:'';display:block;width:22px;height:1px;background:var(--blue)}
+
+/* ── Hero ── */
+.hero{padding:92px 0 72px;position:relative}
+.eyebrow{display:inline-flex;align-items:center;gap:10px;font-size:11px;font-weight:600;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:30px}
+.eyebrow::before{content:'';display:block;width:20px;height:1px;background:var(--blue)}
 .hero h1{font-family:var(--display);font-size:clamp(48px,9vw,80px);font-weight:700;line-height:1.02;letter-spacing:-.03em;margin-bottom:28px}
 .hero h1 .accent{color:var(--blue);display:block}
-.hero-sub{font-size:16.5px;color:var(--text2);max-width:560px;line-height:1.75;margin-bottom:40px}
+.barrier-line{margin:32px 0 30px;padding:18px 0 18px 24px;border-left:2px solid var(--amber);font-family:var(--serif);font-style:italic;font-size:clamp(16px,2.5vw,20px);color:var(--text);line-height:1.52;letter-spacing:-.01em;max-width:640px}
+.hero-sub{font-size:15.5px;color:var(--text2);max-width:580px;line-height:1.78;margin-bottom:38px}
 .hero-sub strong{color:var(--text);font-weight:500}
-.hero-cta{display:flex;gap:12px;flex-wrap:wrap}
-.btn{display:inline-flex;align-items:center;gap:9px;padding:12px 20px;font-family:var(--display);font-size:13.5px;font-weight:600;letter-spacing:.02em;text-decoration:none;border-radius:var(--r);transition:all .2s;cursor:pointer}
+.hero-cta{display:flex;gap:10px;flex-wrap:wrap}
+.btn{display:inline-flex;align-items:center;gap:8px;padding:11px 20px;font-family:var(--display);font-size:13px;font-weight:600;letter-spacing:.02em;text-decoration:none;border-radius:var(--r);transition:all .2s;cursor:pointer;border:none}
 .btn svg{transition:transform .2s}
 .btn-primary{background:var(--blue);color:#fff}
 .btn-primary:hover{background:#4979e2;transform:translateY(-2px)}
-.btn-primary:hover svg{transform:translateY(3px)}
 .btn-ghost{background:transparent;color:var(--text2);border:1px solid var(--border2)}
 .btn-ghost:hover{color:var(--text);border-color:rgba(91,141,245,0.4)}
-.sec{display:flex;align-items:center;gap:14px;margin-bottom:26px}
-.sec span{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);white-space:nowrap}
+
+/* ── Section rule ── */
+.sec{display:flex;align-items:center;gap:14px;margin-bottom:28px}
+.sec span{font-size:10.5px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--text3);white-space:nowrap;font-family:var(--display)}
 .sec-rule{flex:1;height:1px;background:var(--border)}
-.story{margin-bottom:64px}
-.pull-quote{border-left:2px solid var(--blue);padding:14px 0 14px 26px;margin-bottom:36px;font-family:var(--serif);font-size:clamp(15px,2.4vw,19px);font-weight:400;font-style:italic;color:var(--text);line-height:1.58;letter-spacing:-.01em}
+
+/* ── Story ── */
+.story{margin-bottom:68px}
+.pull-quote{border-left:2px solid var(--blue);padding:14px 0 14px 24px;margin-bottom:36px;font-family:var(--serif);font-size:clamp(15px,2.3vw,18.5px);font-style:italic;color:var(--text);line-height:1.6;letter-spacing:-.01em;max-width:700px}
 .pm-active{margin-bottom:38px}
-.pm-active-label{font-size:11px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:12px}
-.pm-chips{display:flex;flex-wrap:wrap;gap:8px}
-.pm-chip{font-size:12px;font-weight:500;color:var(--blue);background:var(--blue-dim);border:1px solid var(--blue-border);padding:5px 12px;border-radius:4px}
-.pm-chip.amber-chip{color:var(--amber);background:var(--amber-dim);border-color:var(--amber-border)}
-.pm-chip.teal-chip{color:var(--teal);background:var(--teal-dim);border-color:rgba(52,201,160,0.22)}
+.pm-active-label{font-size:10.5px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;color:var(--text3);margin-bottom:12px;font-family:var(--display)}
+.pm-chips{display:flex;flex-wrap:wrap;gap:7px}
+.pm-chip{font-size:11.5px;font-weight:500;color:var(--blue);background:var(--blue-dim);border:1px solid var(--blue-bd);padding:4px 11px;border-radius:4px}
+.pm-chip.amber-chip{color:var(--amber);background:var(--amber-dim);border-color:var(--amber-bd)}
+.pm-chip.teal-chip{color:var(--teal);background:var(--teal-dim);border-color:rgba(46,196,160,0.22)}
 .story-grid{display:grid;grid-template-columns:1fr 1fr;gap:0}
-.story-block{padding-right:36px}
-.story-block:last-child{padding-right:0;padding-left:36px;border-left:1px solid var(--border)}
-.story-block h3{font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:16px}
-.story-block p{font-size:13.5px;color:var(--text2);line-height:1.8;margin-bottom:14px}
+.story-block{padding-right:38px}
+.story-block:last-child{padding-right:0;padding-left:38px;border-left:1px solid var(--border)}
+.story-block h3{font-family:var(--display);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:16px}
+.story-block p{font-size:13.5px;color:var(--text2);line-height:1.82;margin-bottom:14px}
 .story-block p:last-of-type{margin-bottom:0}
 .story-block p strong{color:var(--text);font-weight:500}
-.target-callout{margin-top:22px;padding:14px 16px;background:var(--blue-dim);border:1px solid var(--blue-border);border-radius:var(--r);font-size:13px;color:var(--text);font-weight:500;line-height:1.55}
-.target-callout span{display:block;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:6px}
-.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;background:var(--surface);margin:0 0 64px}
+.target-callout{margin-top:22px;padding:14px 16px;background:var(--blue-dim);border:1px solid var(--blue-bd);border-radius:var(--r);font-size:13px;color:var(--text);font-weight:500;line-height:1.55}
+.target-callout span{display:block;font-size:10px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--blue);margin-bottom:6px;font-family:var(--display)}
+
+/* ── Stats ── */
+.stats{display:grid;grid-template-columns:repeat(4,1fr);border:1px solid var(--border);border-radius:var(--r);overflow:hidden;background:var(--surface);margin:0 0 68px}
 .s-item{padding:22px;border-right:1px solid var(--border)}
 .s-item:last-child{border-right:none}
-.s-val{font-family:var(--display);font-size:20px;font-weight:700;color:var(--text);margin-bottom:3px}
-.s-lbl{font-size:11.5px;color:var(--text3);letter-spacing:.03em}
-.ai-section{margin-bottom:64px}
+.s-val{font-family:var(--display);font-size:19px;font-weight:700;color:var(--text);margin-bottom:3px}
+.s-lbl{font-size:11px;color:var(--text3);letter-spacing:.03em}
+
+/* ── AI section ── */
+.ai-section{margin-bottom:68px}
 .ai-intro{font-size:14.5px;color:var(--text2);line-height:1.8;margin-bottom:28px;max-width:680px}
 .ai-intro strong{color:var(--text);font-weight:500}
-.thread{border:1px solid var(--border);border-radius:var(--r);background:var(--surface);overflow:hidden;margin-bottom:0}
+.thread{border:1px solid var(--border);border-radius:var(--r);background:var(--surface);overflow:hidden}
 .thread-item{display:grid;grid-template-columns:44px 1fr;border-bottom:1px solid var(--border)}
 .thread-item:last-child{border-bottom:none}
 .thread-n{display:flex;align-items:flex-start;justify-content:center;padding:20px 0 0;font-family:var(--display);font-size:11px;font-weight:700;letter-spacing:.06em;color:var(--text3);border-right:1px solid var(--border)}
-.thread-body{padding:18px 20px}
-.thread-title{font-size:13px;font-weight:500;color:var(--text);margin-bottom:5px}
+.thread-body{padding:18px 22px}
+.thread-title{font-size:13px;font-weight:600;color:var(--text);margin-bottom:5px;font-family:var(--display)}
 .thread-text{font-size:13px;color:var(--text2);line-height:1.75}
 .thread-badge{display:inline-block;margin-top:8px;font-size:10px;font-weight:600;letter-spacing:.06em;text-transform:uppercase;padding:3px 9px;border-radius:10px}
-.badge-blue{background:var(--blue-dim);color:var(--blue);border:1px solid var(--blue-border)}
-.badge-teal{background:var(--teal-dim);color:var(--teal);border:1px solid rgba(52,201,160,0.22)}
-.badge-amber{background:var(--amber-dim);color:var(--amber);border:1px solid var(--amber-border)}
-.bip{margin-bottom:64px}
+.badge-blue{background:var(--blue-dim);color:var(--blue);border:1px solid var(--blue-bd)}
+.badge-teal{background:var(--teal-dim);color:var(--teal);border:1px solid rgba(46,196,160,0.22)}
+.badge-amber{background:var(--amber-dim);color:var(--amber);border:1px solid var(--amber-bd)}
+
+/* ── BIP ── */
+.bip{margin-bottom:68px}
 .bip-manifesto{font-size:15px;color:var(--text2);line-height:1.82;margin-bottom:28px;max-width:700px}
 .bip-manifesto strong{color:var(--text);font-weight:500}
-.bip-grid{display:grid;grid-template-columns:1fr 1fr;gap:14px;margin-bottom:0}
+.bip-grid{display:grid;grid-template-columns:1fr 1fr;gap:13px}
 .bip-card{border:1px solid var(--border);border-radius:var(--r);background:var(--surface);padding:24px 26px}
 .bip-head{display:flex;align-items:center;gap:10px;margin-bottom:18px}
 .bip-dot{width:8px;height:8px;border-radius:50%;flex-shrink:0}
-.bip-dot.blue{background:var(--blue)}
-.bip-dot.amber{background:var(--amber)}
-.bip-card h4{font-family:var(--display);font-size:12.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--text)}
-.bip-items{list-style:none;display:flex;flex-direction:column;gap:11px}
+.bip-dot.blue{background:var(--blue)}.bip-dot.amber{background:var(--amber)}
+.bip-card h4{font-family:var(--display);font-size:11.5px;font-weight:700;letter-spacing:.12em;text-transform:uppercase;color:var(--text)}
+.bip-items{list-style:none;display:flex;flex-direction:column;gap:10px}
 .bip-items li{font-size:13px;color:var(--text2);line-height:1.6;padding-left:18px;position:relative}
 .bip-items li::before{content:'→';position:absolute;left:0;top:1px;color:var(--text3);font-size:11px}
-.feat{display:block;text-decoration:none;position:relative;border:1px solid var(--border2);border-radius:10px;background:var(--surface);padding:38px 40px;margin-bottom:64px;overflow:hidden;transition:border-color .25s,transform .25s}
-.feat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--blue),var(--amber))}
-.feat:hover{border-color:rgba(91,141,245,0.45);transform:translateY(-3px)}
-.feat-badge{display:inline-flex;align-items:center;gap:7px;font-size:11px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:var(--amber);background:var(--amber-dim);border:1px solid var(--amber-border);padding:4px 11px;border-radius:4px;margin-bottom:18px}
-.pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite}
+
+/* ── Profile card ── */
+.profile-section{margin-bottom:68px}
+.profile-card{display:grid;grid-template-columns:1fr auto;gap:28px;align-items:center;text-decoration:none;border:1px solid var(--border2);border-radius:12px;background:var(--surface);padding:32px 36px;position:relative;overflow:hidden;transition:border-color .22s,transform .22s}
+.profile-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1.5px;background:linear-gradient(90deg,var(--blue),var(--teal),var(--amber))}
+.profile-card:hover{border-color:rgba(91,141,245,0.35);transform:translateY(-2px)}
+.profile-eyebrow{font-size:10px;font-weight:700;letter-spacing:.18em;text-transform:uppercase;color:var(--blue);font-family:var(--display);margin-bottom:8px}
+.profile-title{font-family:var(--display);font-size:22px;font-weight:700;color:var(--text);letter-spacing:-.015em;margin-bottom:8px}
+.profile-desc{font-size:13.5px;color:var(--text2);line-height:1.7;max-width:520px}
+.profile-cta{display:flex;align-items:center;gap:8px;margin-top:16px;font-family:var(--display);font-size:12.5px;font-weight:600;color:var(--blue)}
+.profile-cta svg{transition:transform .2s}
+.profile-card:hover .profile-cta svg{transform:translateX(4px)}
+.profile-graphic{width:80px;height:80px;border-radius:12px;background:var(--blue-dim);border:1px solid var(--blue-bd);display:flex;align-items:center;justify-content:center;color:var(--blue)}
+.profile-graphic svg{width:36px;height:36px;opacity:.8}
+
+/* ── Featured ── */
+.feat{display:block;text-decoration:none;position:relative;border:1px solid var(--border2);border-radius:12px;background:var(--surface);padding:40px 44px;margin-bottom:68px;overflow:hidden;transition:border-color .25s,transform .25s}
+.feat::before{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,#60a5fa,#4ade80,#a78bfa)}
+.feat:hover{border-color:rgba(96,165,250,0.4);transform:translateY(-3px)}
+.feat-badge{display:inline-flex;align-items:center;gap:7px;font-size:10.5px;font-weight:700;letter-spacing:.1em;text-transform:uppercase;color:#4ade80;background:rgba(74,222,128,0.1);border:1px solid rgba(74,222,128,0.25);padding:4px 11px;border-radius:4px;margin-bottom:18px;font-family:var(--display)}
+.pulse-dot{width:6px;height:6px;border-radius:50%;background:var(--green);animation:pulse 2s infinite;flex-shrink:0}
 @keyframes pulse{0%,100%{opacity:1;box-shadow:0 0 0 0 rgba(52,211,153,.4)}50%{opacity:.8;box-shadow:0 0 0 4px rgba(52,211,153,0)}}
-.feat h2{font-family:var(--display);font-size:clamp(20px,3.5vw,28px);font-weight:700;color:var(--text);letter-spacing:-.02em;margin-bottom:12px}
-.feat-desc{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:20px;max-width:600px}
+.feat h2{font-family:var(--display);font-size:clamp(22px,3.8vw,32px);font-weight:700;color:var(--text);letter-spacing:-.02em;margin-bottom:10px}
+.feat-desc{font-size:14px;color:var(--text2);line-height:1.75;margin-bottom:18px;max-width:600px}
 .feat-desc em{color:var(--text);font-style:italic}
-.chips{display:flex;flex-wrap:wrap;gap:7px;margin-bottom:22px}
-.chip{font-size:11.5px;font-weight:500;color:var(--text2);background:var(--surface2);border:1px solid var(--border);padding:4px 11px;border-radius:4px}
+.feat-modules{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+.feat-mod{font-size:10.5px;font-weight:600;letter-spacing:.04em;padding:3px 10px;border-radius:4px;font-family:var(--display)}
+.chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:22px}
+.chip{font-size:11px;font-weight:500;color:var(--text2);background:var(--surface2);border:1px solid var(--border);padding:3px 10px;border-radius:4px}
 .feat-cta{display:inline-flex;align-items:center;gap:8px;font-family:var(--display);font-size:13.5px;font-weight:600;color:var(--blue)}
 .feat-cta svg{transition:transform .2s}
 .feat:hover .feat-cta svg{transform:translateX(4px)}
-.p-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(255px,1fr));gap:13px;margin-bottom:72px}
-.p-card{border:1px solid var(--border);border-radius:var(--r);background:var(--surface);padding:22px 24px;transition:border-color .2s,background .2s}
-.p-card:not(.locked):hover{border-color:var(--border2);background:var(--surface2)}
-.p-card.locked{opacity:.4}
-.p-status{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:13px}
-.p-dot{width:6px;height:6px;border-radius:50%}
+
+/* ── Field Notes — editorial/dossier aesthetic ── */
+.field-notes{margin-bottom:72px}
+.fn-intro{font-size:14px;color:var(--text2);line-height:1.78;margin-bottom:24px;max-width:640px}
+.fn-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(240px,1fr));gap:12px}
+.fn-card{
+  border:1px solid var(--border2);border-radius:4px;
+  background:#13110e;
+  padding:22px 24px;text-decoration:none;
+  transition:border-color .2s,background .2s;
+  display:flex;flex-direction:column;gap:9px;
+  position:relative;overflow:hidden;
+}
+.fn-card:hover{background:#1a1612}
+html.light .fn-card{background:#faf7f2}
+html.light .fn-card:hover{background:#f3efe8}
+/* Subtle left rule — dossier binding metaphor */
+.fn-card::before{content:'';position:absolute;left:0;top:0;bottom:0;width:3px;background:var(--fn-accent,var(--border2));opacity:.7;transition:opacity .2s}
+.fn-card:hover{border-color:var(--border3);box-shadow:0 4px 20px rgba(0,0,0,0.3)}
+.fn-card:hover::before{opacity:1}
+.fn-tag{
+  font-size:9px;font-weight:600;letter-spacing:.14em;text-transform:uppercase;
+  font-family:var(--sans);color:var(--text3);
+  padding:0;display:inline-block;width:fit-content;
+  border-bottom:1px solid var(--border2);padding-bottom:3px;
+}
+.fn-title{font-family:var(--serif);font-size:14.5px;font-weight:500;font-style:italic;color:var(--text);line-height:1.38}
+.fn-desc{font-size:12px;color:var(--text2);line-height:1.65;font-family:var(--sans)}
+.fn-link{font-size:10.5px;color:var(--text2);font-family:var(--sans);font-weight:500;margin-top:auto;padding-top:8px;letter-spacing:.04em;opacity:.7}
+.fn-card:hover .fn-link{opacity:1;color:var(--text)}
+
+/* ── Portfolio cards — app store / terminal aesthetic ── */
+
+/* ── Portfolio ── */
+.portfolio-section{margin-bottom:72px}
+.bucket-head{display:flex;align-items:baseline;gap:14px;margin-bottom:14px;margin-top:36px}
+.bucket-head:first-of-type{margin-top:0}
+.bucket-label{font-family:var(--display);font-size:10.5px;font-weight:700;letter-spacing:.16em;text-transform:uppercase;color:var(--text3)}
+.bucket-rule{flex:1;height:1px;background:var(--border)}
+.bucket-count{font-family:var(--display);font-size:10px;font-weight:600;color:var(--text3);letter-spacing:.06em;white-space:nowrap}
+
+/* Parent platform card — Meridian */
+.p-grid{display:grid;grid-template-columns:repeat(auto-fill,minmax(260px,1fr));gap:12px;margin-bottom:6px}
+
+.p-card{
+  border:1px solid var(--border);
+  border-radius:6px;
+  background:var(--surface);
+  padding:20px 22px;
+  transition:border-color .2s,background .2s,transform .2s;
+  display:flex;flex-direction:column;
+  position:relative;overflow:hidden;
+  font-family:var(--sans);
+}
+.p-card:not(.locked):hover{border-color:var(--border2);background:var(--surface2);transform:translateY(-2px)}
+.p-card.locked{opacity:.38}
+
+/* App-store top bar accent */
+.p-card::before{content:'';position:absolute;top:0;left:0;right:0;height:1px;background:var(--border2);transition:background .2s}
+.p-card:not(.locked):hover::before{background:var(--border3)}
+
+/* Meridian parent card — elevated */
+.p-card.meridian-parent{
+  border-color:var(--border2);
+  background:var(--surface2);
+  grid-column:1 / -1;
+}
+html.light .p-card.meridian-parent{
+  background:#f2ede4;
+  border-color:#ccc9c0;
+}
+html.light .meridian-mod-links .mml{
+  background:#ffffff;
+  border-color:#dddad2;
+}
+html.light .meridian-mod-links .mml:hover{
+  background:#f8f6f2;
+}
+.p-card.meridian-parent::before{height:2px;background:linear-gradient(90deg,#22d3b8,#60a5fa,#a78bfa,#4ade80)}
+.p-card.meridian-parent:hover{border-color:var(--border3);transform:translateY(-2px)}
+
+/* Sub-module cards within SAW bucket */
+.p-card.sub-module{
+  border-style:dashed;
+  border-color:var(--border);
+  background:var(--surface);
+  position:relative;
+}
+.p-card.sub-module::after{
+  content:'';position:absolute;top:12px;right:12px;
+  width:6px;height:6px;border-radius:50%;
+  background:var(--mod-color,var(--teal));
+  box-shadow:0 0 6px var(--mod-color,var(--teal));
+}
+.sub-module-tag{
+  display:inline-flex;align-items:center;gap:5px;
+  font-size:9px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;
+  font-family:var(--sans);
+  color:var(--mod-color,var(--teal));
+  margin-bottom:8px;
+  padding:2px 7px 2px 0;
+  border-bottom:1px solid var(--border);
+  padding-bottom:6px;margin-bottom:10px;
+}
+.sub-module-tag .tag-dot{width:5px;height:5px;border-radius:50%;background:var(--mod-color,var(--teal));flex-shrink:0}
+.experience-badge{
+  display:inline-flex;align-items:center;gap:4px;
+  font-size:9px;font-weight:600;letter-spacing:.1em;text-transform:uppercase;
+  font-family:var(--sans);
+  color:#4ade80;background:rgba(74,222,128,0.08);
+  border:1px solid rgba(74,222,128,0.2);
+  padding:2px 7px;border-radius:3px;
+  margin-top:8px;width:fit-content;
+}
+
+.p-status{display:flex;align-items:center;gap:6px;font-size:10px;font-weight:600;letter-spacing:.12em;text-transform:uppercase;margin-bottom:10px;font-family:var(--sans)}
+.p-dot{width:6px;height:6px;border-radius:50%;flex-shrink:0}
 .p-status.live{color:var(--green)}
 .p-status.live .p-dot{background:var(--green);box-shadow:0 0 6px var(--green);animation:pulse 2s infinite}
-.p-status.building{color:var(--amber)}
-.p-status.building .p-dot{background:var(--amber)}
-.p-status.soon{color:var(--text3)}
-.p-status.soon .p-dot{background:var(--text3)}
-.p-num{font-family:var(--display);font-size:11px;font-weight:600;color:var(--text3);letter-spacing:.08em;margin-bottom:5px}
-.p-title{font-family:var(--display);font-size:14.5px;font-weight:600;color:var(--text);margin-bottom:7px}
-.p-desc{font-size:12.5px;color:var(--text2);line-height:1.6}
-.p-eta{font-size:11.5px;color:var(--text3);margin-top:11px}
+.p-status.building{color:var(--amber)}.p-status.building .p-dot{background:var(--amber)}
+.p-status.soon{color:var(--text3)}.p-status.soon .p-dot{background:var(--text3)}
+.p-num{font-family:var(--sans);font-size:10px;font-weight:600;color:var(--text3);letter-spacing:.1em;text-transform:uppercase;margin-bottom:4px}
+.p-title{font-family:var(--display);font-size:14.5px;font-weight:700;color:var(--text);margin-bottom:7px;letter-spacing:-.01em}
+.p-title.parent-title{font-size:18px;letter-spacing:-.02em}
+.p-desc{font-size:12.5px;color:var(--text2);line-height:1.62;flex:1;font-family:var(--sans)}
+.p-eta{font-size:11px;color:var(--text3);margin-top:10px;font-family:var(--sans)}
+.p-graphic{color:var(--text3);opacity:.5;margin:12px 0 14px;display:block}
+.p-card.highlighted .p-graphic{color:var(--amber);opacity:.42}
+.p-card.locked .p-graphic{opacity:.2}
+.p-trio{display:flex;align-items:center;gap:5px;flex-wrap:nowrap;margin-top:16px;padding-top:12px;border-top:1px solid var(--border)}
+.trio-btn{
+  font-family:var(--sans);font-size:10px;font-weight:600;letter-spacing:.04em;
+  padding:4px 9px;border-radius:4px;text-decoration:none;
+  border:1px solid var(--border2);transition:all .15s;
+  white-space:nowrap;display:inline-flex;align-items:center;gap:3px;line-height:1.4;
+}
+.trio-btn.launch{background:var(--blue);color:#fff;border-color:var(--blue)}
+.trio-btn.launch:hover{background:#4979e2}
+.trio-btn.soft{background:transparent;color:var(--text2)}
+.trio-btn.soft:hover{color:var(--text);background:var(--surface2)}
+.trio-sep{width:2px;height:2px;border-radius:50%;background:var(--border2);flex-shrink:0}
+.trio-ghost{font-size:10px;color:var(--text3);font-style:italic}
+.p-card.highlighted{border-color:var(--amber-bd);position:relative}
+.p-card.highlighted::before{height:1.5px;background:linear-gradient(90deg,var(--amber),var(--blue))}
+.ai-flag{position:absolute;top:10px;right:10px;display:inline-flex;align-items:center;gap:4px;font-family:var(--sans);font-size:9px;font-weight:600;letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border-radius:4px;background:rgba(91,141,245,0.12);color:var(--blue);border:1px solid var(--blue-bd);z-index:2}
+.ai-flag svg{width:9px;height:9px;flex-shrink:0}
+.meridian-modules{display:flex;flex-wrap:wrap;gap:4px;margin:10px 0 12px}
+.mm-chip{font-size:9.5px;font-weight:600;letter-spacing:.04em;padding:2px 7px;border-radius:3px;font-family:var(--sans)}
+
+/* Meridian parent module links grid */
+.meridian-mod-links{
+  display:grid;grid-template-columns:repeat(3,1fr);gap:6px;
+  margin:14px 0 16px;
+}
+.mml{
+  display:flex;flex-direction:column;gap:2px;
+  padding:8px 10px;border-radius:4px;text-decoration:none;
+  border:1px solid var(--border2);background:var(--surface2);
+  transition:border-color .15s,background .15s;
+}
+.mml:hover{border-color:var(--border3);background:var(--surface3)}
+.mml-icon{font-size:11px;color:var(--mml-color,var(--blue));line-height:1}
+.mml-name{font-size:10px;font-weight:600;color:var(--text2);font-family:var(--sans);letter-spacing:.02em}
+.mml-status{font-size:9px;color:var(--text3);font-family:var(--sans)}
+
+/* ── Credentials ── */
 .creds-section{margin-bottom:72px}
 .certs{display:flex;flex-wrap:wrap;gap:8px}
 .cert{font-size:12px;font-weight:500;color:var(--text2);background:var(--surface);border:1px solid var(--border);padding:6px 14px;border-radius:4px}
+
+/* ── Footer ── */
 footer{border-top:1px solid var(--border);padding:28px 0;display:flex;align-items:center;justify-content:space-between;flex-wrap:wrap;gap:14px}
 .foot-copy{font-size:12px;color:var(--text3)}
 .foot-links{display:flex;gap:20px}
 .foot-links a{font-size:12px;color:var(--text3);text-decoration:none;transition:color .2s}
 .foot-links a:hover{color:var(--text2)}
-.reveal{opacity:0;transform:translateY(16px);transition:opacity .55s ease,transform .55s ease}
+
+/* ── Reveal ── */
+.reveal{opacity:0;transform:translateY(18px);transition:opacity .55s ease,transform .55s ease}
 .reveal.visible{opacity:1;transform:none}
-@media(max-width:640px){
-  .hero{padding:52px 0 44px}
+
+/* ── Responsive ── */
+@media(max-width:680px){
+  .hero{padding:56px 0 46px}
   .stats{grid-template-columns:repeat(2,1fr)}
   .s-item:nth-child(2){border-right:none}
   .s-item:nth-child(3),.s-item:nth-child(4){border-top:1px solid var(--border)}
-  .s-item:nth-child(4){border-right:none}
   .story-grid{grid-template-columns:1fr}
   .story-block{padding-right:0}
   .story-block:last-child{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:28px;margin-top:28px}
   .bip-grid{grid-template-columns:1fr}
-  .feat{padding:24px 22px}
+  .feat{padding:26px 24px}
   .nav-links{display:none}
-  .hero h1{font-size:44px}
-}
-
-/* ── ADDITIONS: Photo · Trio · Graphics ── */
-
-/* Hero photo layout */
-
-/* Card SVG graphic */
-.p-graphic{color:var(--text3);opacity:.52;margin:12px 0 14px;display:block;line-height:0}
-.p-card.highlighted .p-graphic{color:var(--amber);opacity:.45}
-.p-card.locked .p-graphic{opacity:.22}
-
-/* Trio action row */
-.p-trio{display:flex;align-items:center;gap:5px;flex-wrap:nowrap;margin-top:16px;padding-top:12px;border-top:1px solid var(--border);overflow:hidden}
-.trio-btn{font-family:var(--display);font-size:10px;font-weight:600;letter-spacing:.02em;padding:3px 7px;border-radius:4px;text-decoration:none;border:1px solid var(--border2);transition:all .15s;white-space:nowrap;display:inline-flex;align-items:center;gap:3px;line-height:1}
-.trio-btn.launch{background:var(--blue);color:#fff;border-color:var(--blue)}
-.trio-btn.launch:hover{background:#4979e2;transform:translateY(-1px)}
-.trio-btn.soft{background:transparent;color:var(--text2)}
-.trio-btn.soft:hover{color:var(--text);background:var(--surface2)}
-.trio-sep{width:2px;height:2px;border-radius:50%;background:var(--border2);flex-shrink:0}
-.trio-ghost{font-size:10px;color:var(--text3);font-style:italic}
-
-/* Highlighted (featured) portfolio card */
-.p-card.highlighted{position:relative;overflow:hidden;border-color:var(--amber-border)}
-.p-card.highlighted::after{content:'';position:absolute;top:0;left:0;right:0;height:2px;background:linear-gradient(90deg,var(--amber),var(--blue));pointer-events:none;z-index:1}
-
-/* AI flag badge */
-.ai-flag{position:absolute;top:10px;right:10px;display:inline-flex;align-items:center;gap:4px;font-family:var(--display);font-size:9px;font-weight:700;letter-spacing:.08em;text-transform:uppercase;padding:3px 7px;border-radius:4px;background:rgba(91,141,245,0.13);color:var(--blue);border:1px solid rgba(91,141,245,0.25);z-index:2;}
-.ai-flag svg{width:9px;height:9px;flex-shrink:0;}
-
-/* Responsive additions */
-@media(max-width:640px){
-
+  .profile-card{grid-template-columns:1fr}
+  .profile-card .profile-right{display:none}
 }
 </style>
 </head>
@@ -212,12 +379,13 @@ footer{border-top:1px solid var(--border);padding:28px 0;display:flex;align-item
       <ul class="nav-links">
         <li><a href="#story">Background</a></li>
         <li><a href="#bip">Building in Public</a></li>
+        <li><a href="#field-notes">Field Notes</a></li>
         <li><a href="#portfolio">Portfolio</a></li>
         <li><a href="https://www.linkedin.com/in/archishmanb/" target="_blank">LinkedIn ↗</a></li>
       </ul>
-      <button class="theme-toggle" id="theme-btn" aria-label="Toggle light/dark mode" title="Toggle light/dark mode">
-        <svg id="icon-moon" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg"><path d="M7.5 1.5a6 6 0 1 0 6 6 4.5 4.5 0 0 1-6-6z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-        <svg id="icon-sun" viewBox="0 0 15 15" fill="none" xmlns="http://www.w3.org/2000/svg" style="display:none"><circle cx="7.5" cy="7.5" r="2.5" stroke="currentColor" stroke-width="1.4"></circle><path d="M7.5 1v1.5M7.5 12.5V14M1 7.5h1.5M12.5 7.5H14M3.1 3.1l1.1 1.1M10.8 10.8l1.1 1.1M10.8 3.1l-1.1 1.1M3.1 10.8l1.1 1.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></path></svg>
+      <button class="theme-toggle" id="theme-btn" aria-label="Toggle light/dark mode">
+        <svg id="icon-moon" viewBox="0 0 15 15" fill="none"><path d="M7.5 1.5a6 6 0 1 0 6 6 4.5 4.5 0 0 1-6-6z" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        <svg id="icon-sun" viewBox="0 0 15 15" fill="none" style="display:none"><circle cx="7.5" cy="7.5" r="2.5" stroke="currentColor" stroke-width="1.4"/><path d="M7.5 1v1.5M7.5 12.5V14M1 7.5h1.5M12.5 7.5H14M3.1 3.1l1.1 1.1M10.8 10.8l1.1 1.1M10.8 3.1l-1.1 1.1M3.1 10.8l1.1 1.1" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/></svg>
       </button>
     </nav>
   </div>
@@ -226,34 +394,36 @@ footer{border-top:1px solid var(--border);padding:28px 0;display:flex;align-item
 <main>
 <div class="wrap">
 
-  <!-- ── HERO ── -->
+  <!-- ══ HERO ══ -->
   <section class="hero">
-        <div class="eyebrow">Strategy · Technology · Product · Hyderabad</div>
-        <h1>Archishman<span class="accent">Bandyopadhyay.</span></h1>
-        <p class="hero-sub">
-          <strong>12 years across Tata Motors, Mahindra, Monitor Deloitte, and Accenture.</strong>
-          From factory floors and brand P&amp;Ls to enterprise architecture and AI-augmented delivery.
-          A deliberate, documented exploration of where strategy consulting competencies meet
-          product and technology leadership — <strong>built entirely in public.</strong>
-        </p>
-        <div class="hero-cta">
-          <a href="#portfolio" class="btn btn-primary">
-            View portfolio
-            <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 2.5v10M3.5 8.5l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
-          </a>
-          <a href="https://archishman-b.github.io/career-intelligence-map/" class="btn btn-ghost" target="_blank">Career map ↗</a>
-          <a href="https://archishman-b.github.io/master-build-log.html" class="btn btn-ghost" target="_blank">Build log ↗</a>
-        </div>
+    <div class="eyebrow">Strategy · Technology · Product · Hyderabad</div>
+    <h1>Archishman<span class="accent">Bandyopadhyay.</span></h1>
+
+    <div class="barrier-line reveal">
+      "The barrier between strategy and execution is collapsing — and what survives is the judgment layer."
+    </div>
+
+    <p class="hero-sub reveal">
+      <strong>12 years across Tata Motors, Mahindra, Monitor Deloitte, and Accenture.</strong>
+      From factory floors and brand P&amp;Ls to enterprise architecture and AI-augmented delivery.
+      A deliberate, documented exploration of where strategy consulting competencies meet
+      product and technology leadership — <strong>built entirely in public.</strong>
+    </p>
+    <div class="hero-cta reveal">
+      <a href="#portfolio" class="btn btn-primary">
+        View portfolio
+        <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M7.5 2.5v10M3.5 8.5l4 4 4-4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+      </a>
+      <a href="https://archishman-b.github.io/master-build-log.html" class="btn btn-ghost" target="_blank">Build log ↗</a>
+    </div>
   </section>
 
-  <!-- ── STORY ── -->
+  <!-- ══ STORY ══ -->
   <section id="story" class="story">
     <div class="sec reveal"><span>Background</span><div class="sec-rule"></div></div>
-
     <blockquote class="pull-quote reveal">
       "Strategy consulting trains you to do something that looks a lot like product work — listen for the real signal, frame the right problem, design the solution with execution already in mind, and stay accountable to the outcome. This portfolio exists to make that legible — and to extend it into new territory."
     </blockquote>
-
     <div class="pm-active reveal">
       <div class="pm-active-label">PM-adjacent work I'm already doing at Accenture &amp; Monitor Deloitte</div>
       <div class="pm-chips">
@@ -269,7 +439,6 @@ footer{border-top:1px solid var(--border);padding:28px 0;display:flex;align-item
         <span class="pm-chip teal-chip">AI-Augmented Delivery</span>
       </div>
     </div>
-
     <div class="story-grid">
       <div class="story-block reveal">
         <h3>Where this comes from</h3>
@@ -290,7 +459,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;display:flex;align-item
     </div>
   </section>
 
-  <!-- ── STATS ── -->
+  <!-- ══ STATS ══ -->
   <div class="stats reveal">
     <div class="s-item"><div class="s-val">12 yrs</div><div class="s-lbl">Cross-functional</div></div>
     <div class="s-item"><div class="s-val">~$130M</div><div class="s-lbl">P&amp;L &amp; revenue accountability</div></div>
@@ -298,7 +467,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;display:flex;align-item
     <div class="s-item"><div class="s-val">10K+</div><div class="s-lbl">Applications rationalised</div></div>
   </div>
 
-  <!-- ── AI SECTION ── -->
+  <!-- ══ STRUCTURAL SHIFT ══ -->
   <section class="ai-section">
     <div class="sec reveal"><span>The structural shift</span><div class="sec-rule"></div></div>
     <p class="ai-intro reveal">The traditional barrier between strategy and execution — <strong>knowing how to build the thing</strong> — is narrowing faster than most institutions expect. AI is abstracting the tool-specific layer, which amplifies the upstream skills that were always the hard part.</p>
@@ -338,7 +507,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;display:flex;align-item
     </div>
   </section>
 
-  <!-- ── BUILDING IN PUBLIC ── -->
+  <!-- ══ BUILDING IN PUBLIC ══ -->
   <section id="bip" class="bip">
     <div class="sec reveal"><span>Building in Public</span><div class="sec-rule"></div></div>
     <p class="bip-manifesto reveal">Most career explorations are announced after the fact. I'm doing the opposite — <strong>publishing real, verifiable artefacts in the open</strong> across five strategic domains over 50 weeks. Not retrospective case studies. Not opinion pieces. Actual frameworks, analyses, and interactive tools — each scoped and shipped like a product. The goal is dual: to demonstrate that my thinking already operates at the required level, and to deliberately build the domain fluency and community credibility of the tech product world I'm moving toward.</p>
@@ -364,217 +533,332 @@ footer{border-top:1px solid var(--border);padding:28px 0;display:flex;align-item
     </div>
   </section>
 
-  <!-- ── FEATURED — updated to Pricing Analyser ── -->
-  <div class="sec reveal"><span>Featured</span><div class="sec-rule"></div></div>
+  <!-- ══ INTELLIGENCE PROFILE ══ -->
+  <section class="profile-section reveal">
+    <div class="sec"><span>Intelligence Profile</span><div class="sec-rule"></div></div>
+    <a href="https://archishman-b.github.io/career-intelligence-map/" class="profile-card" target="_blank">
+      <div class="profile-left">
+        <div class="profile-eyebrow">Interactive · Always live</div>
+        <div class="profile-title">The Career Intelligence Map</div>
+        <div class="profile-desc">A full-spectrum interactive analysis of 12 years across four organisations — skills, archetypes, competency synergies, engagement patterns, and 10-year trajectory modelling. Not a CV. A structured self-diagnostic that makes the shape of the work legible at a glance.</div>
+        <div class="profile-cta">
+          Explore the map
+          <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"/></svg>
+        </div>
+      </div>
+      <div class="profile-right">
+        <div class="profile-graphic">
+          <svg viewBox="0 0 64 48" fill="none">
+            <circle cx="32" cy="22" r="5.5" stroke="currentColor" stroke-width="1.4"/>
+            <circle cx="12" cy="9" r="3" stroke="currentColor" stroke-width="1.3"/>
+            <circle cx="52" cy="9" r="3" stroke="currentColor" stroke-width="1.3"/>
+            <circle cx="6" cy="32" r="3" stroke="currentColor" stroke-width="1.3"/>
+            <circle cx="58" cy="32" r="3" stroke="currentColor" stroke-width="1.3"/>
+            <circle cx="20" cy="43" r="3" stroke="currentColor" stroke-width="1.3"/>
+            <circle cx="44" cy="43" r="3" stroke="currentColor" stroke-width="1.3"/>
+            <line x1="27.2" y1="18.2" x2="14.4" y2="11.2" stroke="currentColor" stroke-width="1"/>
+            <line x1="36.8" y1="18.2" x2="49.6" y2="11.2" stroke="currentColor" stroke-width="1"/>
+            <line x1="26.5" y1="23.5" x2="8.8" y2="30.5" stroke="currentColor" stroke-width="1"/>
+            <line x1="37.5" y1="23.5" x2="55.2" y2="30.5" stroke="currentColor" stroke-width="1"/>
+            <line x1="29" y1="27" x2="21.5" y2="40.5" stroke="currentColor" stroke-width="1"/>
+            <line x1="35" y1="27" x2="42.5" y2="40.5" stroke="currentColor" stroke-width="1"/>
+          </svg>
+        </div>
+      </div>
+    </a>
+  </section>
 
-  <a href="https://archishman-b.github.io/pricing-analyser/" class="feat reveal" target="_blank">
-    <div class="feat-badge"><div class="pulse-dot"></div> Live · Project 04 · v1.0</div>
-    <h2>Pricing Analyser</h2>
-    <p class="feat-desc">An 8-module commercial analytics workbench — price waterfall, band analysis, discount governance, margin decomposition, EVE model, SaaS studio, competitive intelligence, and behavioural lab. The complete <em>3-piece set:</em> tool + theory companion + PM journal. Zero-server, browser-native.</p>
-    <div class="chips">
-      <span class="chip">Price Waterfall</span>
-      <span class="chip">Discount Governance</span>
-      <span class="chip">Margin Decomposition</span>
-      <span class="chip">EVE Model</span>
-      <span class="chip">SaaS Studio</span>
-      <span class="chip">Behavioural Lab</span>
-      <span class="chip">8 Modules</span>
-      <span class="chip">v1.0</span>
+
+
+  <!-- ══ FIELD NOTES ══ -->
+  <section id="field-notes" class="field-notes">
+    <div class="sec reveal"><span>Field Notes</span><div class="sec-rule"></div></div>
+    <p class="fn-intro reveal">Analytical frameworks, theory companions, and reference playbooks — the intellectual infrastructure behind the tools. Each piece is written for practitioners, cross-linked from its parent product, and built to stand alone as a reference.</p>
+    <div class="fn-grid reveal">
+      <a href="https://archishman-b.github.io/pricing-analyser/pricing-theory-companion.html" class="fn-card" style="--fn-accent:#22d3b8" target="_blank">
+        <div class="fn-tag">Pricing · Theory</div>
+        <div class="fn-title">The Pricing Intelligence Companion</div>
+        <div class="fn-desc">Pocket price waterfall methodology, value-based pricing frameworks, behavioural price perception, and discount governance models.</div>
+        <div class="fn-link">Open reference →</div>
+      </a>
+      <a href="https://archishman-b.github.io/ml-for-strategy/ML_Strategy_Playbook.html" class="fn-card" style="--fn-accent:#5b8ef5" target="_blank">
+        <div class="fn-tag">ML · Playbook</div>
+        <div class="fn-title">ML for Strategy — Field Playbook</div>
+        <div class="fn-desc">19-model reference guide for strategy and PM contexts. Analyst workflows, output interpretation, and business framing for each model class.</div>
+        <div class="fn-link">Open playbook →</div>
+      </a>
+      <a href="https://archishman-b.github.io/ml-for-strategy/stats/index.html" class="fn-card" style="--fn-accent:#a78bfa" target="_blank">
+        <div class="fn-tag">Statistics · Reference</div>
+        <div class="fn-title">Statistics for Strategy Practitioners</div>
+        <div class="fn-desc">Probability, inference, regression, and causal reasoning — grounded in business interpretation rather than academic proof.</div>
+        <div class="fn-link">Open reference →</div>
+      </a>
+      <a href="https://archishman-b.github.io/databridge/databridge-theory-companion.html" class="fn-card" style="--fn-accent:#e8a53c" target="_blank">
+        <div class="fn-tag">Data · ETL · Theory</div>
+        <div class="fn-title">DataBridge — Theory Companion</div>
+        <div class="fn-desc">Data transformation principles, schema design, pipeline architecture, and the analytical case for browser-native ETL.</div>
+        <div class="fn-link">Open companion →</div>
+      </a>
     </div>
-    <div class="feat-cta">
-      Launch the Pricing Analyser
-      <svg width="15" height="15" viewBox="0 0 15 15" fill="none"><path d="M2.5 7.5h10M8.5 3.5l4 4-4 4" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"></path></svg>
+  </section>
+
+  <!-- ══ PORTFOLIO ══ -->
+  <section id="portfolio" class="portfolio-section">
+    <div class="sec reveal"><span>Portfolio</span><div class="sec-rule"></div></div>
+
+    <!-- Bucket 1 -->
+    <div class="bucket-head reveal">
+      <div class="bucket-label">Strategy Analytics Workbench</div>
+      <div class="bucket-rule"></div>
+      <div class="bucket-count">1 platform · 3 proven workflows</div>
     </div>
-  </a>
 
-  <!-- ── PORTFOLIO ── -->
-  <div id="portfolio" class="sec reveal"><span>Portfolio</span><div class="sec-rule"></div></div>
+    <!-- Meridian — full width parent -->
+    <div class="p-grid reveal" style="grid-template-columns:1fr">
+      <div class="p-card meridian-parent">
+        <div class="p-status live"><div class="p-dot"></div>Live · v1.0 · Platform</div>
+        <div class="p-num">Platform · 6 modules</div>
+        <div class="p-title parent-title">Meridian</div>
+        <p class="p-desc" style="max-width:580px">Browser-native strategy analytics platform — six analytical modules, one unified architecture. Zero server, zero licence, zero infrastructure. Each module is purpose-built for a specific consulting engagement archetype.</p>
 
-  <div class="p-grid">
+        <!-- Module links grid — 4. featured card module links -->
+        <div class="meridian-mod-links">
+          <a href="http://archishman.com/meridian/price/" class="mml" style="--mml-color:#22d3b8" target="_blank">
+            <div class="mml-icon">◈</div>
+            <div class="mml-name">Price</div>
+            <div class="mml-status">Live · experienced</div>
+          </a>
+          <a href="http://archishman.com/meridian/pulse/" class="mml" style="--mml-color:#a78bfa" target="_blank">
+            <div class="mml-icon">⬟</div>
+            <div class="mml-name">Pulse</div>
+            <div class="mml-status">Live · experienced</div>
+          </a>
+          <a href="http://archishman.com/meridian/bridge/" class="mml" style="--mml-color:#e8a53c" target="_blank">
+            <div class="mml-icon">⊞</div>
+            <div class="mml-name">Bridge</div>
+            <div class="mml-status">Live · data layer</div>
+          </a>
+          <a href="http://archishman.com/meridian/ledger/" class="mml" style="--mml-color:#f5a524" target="_blank">
+            <div class="mml-icon">▦</div>
+            <div class="mml-name">Ledger</div>
+            <div class="mml-status">Live · extension</div>
+          </a>
+          <a href="http://archishman.com/meridian/org/" class="mml" style="--mml-color:#fb7185" target="_blank">
+            <div class="mml-icon">⊹</div>
+            <div class="mml-name">Org</div>
+            <div class="mml-status">Live · extension</div>
+          </a>
+          <a href="http://archishman.com/meridian/field/" class="mml" style="--mml-color:#60a5fa" target="_blank">
+            <div class="mml-icon">◎</div>
+            <div class="mml-name">Field</div>
+            <div class="mml-status">Live · extension</div>
+          </a>
+          <a href="http://archishman.com/meridian/flow/" class="mml" style="--mml-color:#4ade80" target="_blank">
+            <div class="mml-icon">⬡</div>
+            <div class="mml-name">Flow</div>
+            <div class="mml-status">Live · extension</div>
+          </a>
+        </div>
 
-    <!-- 01 Career Intelligence Map -->
-    <div class="p-card reveal">
-      <div class="p-status live"><div class="p-dot"></div>Live</div>
-      <div class="p-num">01 · Interactive CV</div>
-      <div class="p-title">Career Intelligence Map</div>
-      <p class="p-desc">Full-spectrum interactive career analysis — skills, archetypes, synergies, and 10-year planning horizon.</p>
-      <!-- network / knowledge-graph icon -->
-      <svg class="p-graphic" width="64" height="48" viewBox="0 0 64 48" fill="none" aria-hidden="true">
-        <circle cx="32" cy="22" r="5.5" stroke="currentColor" stroke-width="1.4"></circle>
-        <circle cx="12" cy="9" r="3" stroke="currentColor" stroke-width="1.3"></circle>
-        <circle cx="52" cy="9" r="3" stroke="currentColor" stroke-width="1.3"></circle>
-        <circle cx="6" cy="32" r="3" stroke="currentColor" stroke-width="1.3"></circle>
-        <circle cx="58" cy="32" r="3" stroke="currentColor" stroke-width="1.3"></circle>
-        <circle cx="20" cy="43" r="3" stroke="currentColor" stroke-width="1.3"></circle>
-        <circle cx="44" cy="43" r="3" stroke="currentColor" stroke-width="1.3"></circle>
-        <line x1="27.2" y1="18.2" x2="14.4" y2="11.2" stroke="currentColor" stroke-width="1"></line>
-        <line x1="36.8" y1="18.2" x2="49.6" y2="11.2" stroke="currentColor" stroke-width="1"></line>
-        <line x1="26.5" y1="23.5" x2="8.8" y2="30.5" stroke="currentColor" stroke-width="1"></line>
-        <line x1="37.5" y1="23.5" x2="55.2" y2="30.5" stroke="currentColor" stroke-width="1"></line>
-        <line x1="29" y1="27" x2="21.5" y2="40.5" stroke="currentColor" stroke-width="1"></line>
-        <line x1="35" y1="27" x2="42.5" y2="40.5" stroke="currentColor" stroke-width="1"></line>
-      </svg>
-      <div class="p-trio">
-        <a class="trio-btn launch" href="https://archishman-b.github.io/career-intelligence-map/" target="_blank">↗ Explore</a>
+        <div class="p-trio">
+          <a class="trio-btn launch" href="http://archishman.com/meridian/" target="_blank">↗ Launch platform</a>
+          <div class="trio-sep"></div>
+          <a class="trio-btn soft" href="http://archishman.com/meridian/Meridian%20%E2%80%94%20Product%20Vision%20%26%20Architecture%20Blueprint%20v2.html" target="_blank">Blueprint</a>
+        </div>
       </div>
     </div>
 
-    <!-- 02 ML Strategy Playbook -->
-    <div class="p-card reveal">
-      <div class="p-status live"><div class="p-dot"></div>Live</div>
-      <div class="p-num">02 · Reference</div>
-      <div class="p-title">ML Strategy Playbook</div>
-      <p class="p-desc">19-model field guide for strategy and PM contexts. Pre-populated analyst workflows, outputs, and business interpretation.</p>
-      <!-- scatter plot / regression icon -->
-      <svg class="p-graphic" width="64" height="48" viewBox="0 0 64 48" fill="none" aria-hidden="true">
-        <line x1="10" y1="8" x2="10" y2="42" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></line>
-        <line x1="10" y1="42" x2="58" y2="42" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></line>
-        <circle cx="17" cy="37" r="2.2" fill="currentColor"></circle>
-        <circle cx="24" cy="31" r="2.2" fill="currentColor"></circle>
-        <circle cx="31" cy="27" r="2.2" fill="currentColor"></circle>
-        <circle cx="39" cy="21" r="2.2" fill="currentColor"></circle>
-        <circle cx="46" cy="17" r="2.2" fill="currentColor"></circle>
-        <circle cx="54" cy="13" r="2.2" fill="currentColor"></circle>
-        <line x1="12" y1="41" x2="58" y2="11" stroke="currentColor" stroke-width="1.1" stroke-dasharray="3 2.2" stroke-linecap="round"></line>
-      </svg>
-      <div class="p-trio">
-        <a class="trio-btn launch" href="https://archishman-b.github.io/ml-for-strategy/ML_Strategy_Playbook.html" target="_blank">↗ Open</a>
-        <div class="trio-sep"></div>
-        <a class="trio-btn soft" href="https://archishman-b.github.io/ml-for-strategy/stats/index.html" target="_blank">Theory</a>
-        <div class="trio-sep"></div>
-        <span class="trio-ghost">PM Journal coming</span>
+    <!-- Sub-module cards — 3 proven workflows -->
+    <div class="p-grid reveal">
+
+      <!-- Price Analyser -->
+      <div class="p-card sub-module" style="--mod-color:#22d3b8">
+        <div class="sub-module-tag"><div class="tag-dot"></div>Meridian Price · Standalone</div>
+        <div class="p-status live"><div class="p-dot"></div>Live · v1.0</div>
+        <div class="p-num">8 modules · full diagnostic</div>
+        <div class="p-title">Pricing Analyser</div>
+        <p class="p-desc">Complete commercial pricing diagnostic — price waterfall, discount governance, margin decomposition, EVE model, SaaS studio, behavioural lab. Grounded in a $50M pricing transformation at Monitor Deloitte.</p>
+        <div class="experience-badge">✓ Engagement-proven</div>
+        <svg class="p-graphic" width="64" height="48" viewBox="0 0 64 48" fill="none" aria-hidden="true">
+          <line x1="5" y1="43" x2="59" y2="43" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"/>
+          <rect x="6" y="10" width="9" height="33" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+          <rect x="18" y="18" width="9" height="25" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+          <rect x="30" y="25" width="9" height="18" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+          <rect x="42" y="31" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+          <rect x="54" y="37" width="5" height="6" rx="1.5" stroke="currentColor" stroke-width="1.4"/>
+          <line x1="15" y1="10" x2="18" y2="18" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2 1.8" stroke-linecap="round"/>
+          <line x1="27" y1="18" x2="30" y2="25" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2 1.8" stroke-linecap="round"/>
+          <line x1="39" y1="25" x2="42" y2="31" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2 1.8" stroke-linecap="round"/>
+        </svg>
+        <div class="p-trio">
+          <a class="trio-btn launch" href="https://archishman-b.github.io/pricing-analyser/" target="_blank">↗ Launch</a>
+          <div class="trio-sep"></div>
+          <a class="trio-btn soft" href="https://archishman-b.github.io/pricing-analyser/pricing-theory-companion.html" target="_blank">Theory</a>
+          <div class="trio-sep"></div>
+          <a class="trio-btn soft" href="https://archishman-b.github.io/pricing-analyser/pricing-analyser-build-journal.html" target="_blank">PM Journal</a>
+        </div>
       </div>
-    </div>
 
-    <!-- 03 DataBridge -->
-    <div class="p-card reveal">
-      <div class="p-status live"><div class="p-dot"></div>Live</div>
-      <div class="p-num">03 · Tool</div>
-      <div class="p-title">DataBridge</div>
-      <p class="p-desc">Browser-based data transformation tool for analysts — filter, aggregate, inspect, and segment CSVs without writing code.</p>
-      <!-- table → transform → table icon -->
-      <svg class="p-graphic" width="64" height="48" viewBox="0 0 64 48" fill="none" aria-hidden="true">
-        <rect x="2" y="11" width="22" height="26" rx="2.5" stroke="currentColor" stroke-width="1.4"></rect>
-        <line x1="2" y1="18" x2="24" y2="18" stroke="currentColor" stroke-width="0.9"></line>
-        <line x1="2" y1="25" x2="24" y2="25" stroke="currentColor" stroke-width="0.9"></line>
-        <line x1="2" y1="32" x2="24" y2="32" stroke="currentColor" stroke-width="0.9"></line>
-        <line x1="10" y1="11" x2="10" y2="37" stroke="currentColor" stroke-width="0.9"></line>
-        <rect x="40" y="11" width="22" height="26" rx="2.5" stroke="currentColor" stroke-width="1.4"></rect>
-        <line x1="40" y1="18" x2="62" y2="18" stroke="currentColor" stroke-width="0.9"></line>
-        <line x1="40" y1="25" x2="62" y2="25" stroke="currentColor" stroke-width="0.9"></line>
-        <line x1="40" y1="32" x2="57" y2="32" stroke="currentColor" stroke-width="0.9"></line>
-        <line x1="26" y1="24" x2="38" y2="24" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></line>
-        <path d="M34.5 20.5L38.5 24L34.5 27.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"></path>
-      </svg>
-      <div class="p-trio">
-        <a class="trio-btn launch" href="https://archishman-b.github.io/databridge/databridge.html" target="_blank">↗ Open</a>
-        <div class="trio-sep"></div>
-        <a class="trio-btn soft" href="https://archishman-b.github.io/databridge/databridge-theory-companion.html" target="_blank">Theory</a>
-        <div class="trio-sep"></div>
-        <a class="trio-btn soft" href="https://archishman-b.github.io/databridge/databridge-build-journal.html" target="_blank">PM Journal</a>
+      <!-- Pulse -->
+      <div class="p-card sub-module" style="--mod-color:#a78bfa">
+        <div class="sub-module-tag"><div class="tag-dot"></div>Meridian Pulse · Consumer</div>
+        <div class="p-status live"><div class="p-dot"></div>Live · v1.0</div>
+        <div class="p-num">5 modules · in-browser ML</div>
+        <div class="p-title">Consumer Analytics</div>
+        <p class="p-desc">CLTV modelling, churn prediction, propensity scoring, RFM segmentation, cohort retention. Grounded in 2M+ customer analytics at Mahindra on SQL Server.</p>
+        <div class="experience-badge">✓ Engagement-proven</div>
+        <svg class="p-graphic" width="64" height="48" viewBox="0 0 64 48" fill="none" aria-hidden="true">
+          <line x1="8" y1="8" x2="8" y2="42" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          <line x1="8" y1="42" x2="58" y2="42" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+          <circle cx="16" cy="36" r="2.5" fill="currentColor" opacity=".5"/>
+          <circle cx="24" cy="28" r="2.5" fill="currentColor" opacity=".6"/>
+          <circle cx="32" cy="22" r="3" fill="currentColor" opacity=".7"/>
+          <circle cx="40" cy="18" r="3.5" fill="currentColor" opacity=".8"/>
+          <circle cx="50" cy="14" r="4" fill="currentColor"/>
+          <path d="M14 38 Q24 20 50 12" stroke="currentColor" stroke-width="1.2" stroke-dasharray="3 2" fill="none" stroke-linecap="round"/>
+        </svg>
+        <div class="p-trio">
+          <a class="trio-btn launch" href="http://archishman.com/meridian/pulse/" target="_blank">↗ Launch</a>
+          <div class="trio-sep"></div>
+          <span class="trio-ghost">Theory coming</span>
+          <div class="trio-sep"></div>
+          <span class="trio-ghost">PM Journal coming</span>
+        </div>
       </div>
-    </div>
 
-    <!-- 04 Pricing Analyser — highlighted -->
-    <div class="p-card highlighted reveal">
-      <div class="p-status live"><div class="p-dot"></div>Live · v1.0</div>
-      <div class="p-num">04 · Tool · 8 modules</div>
-      <div class="p-title">Pricing Analyser</div>
-      <p class="p-desc">8-module commercial analytics workbench — price waterfall, band analysis, discount governance, margin decomposition, EVE model, SaaS studio, competitive intelligence, behavioural lab. Full 3-piece set.</p>
-      <!-- price waterfall icon -->
-      <svg class="p-graphic" width="64" height="48" viewBox="0 0 64 48" fill="none" aria-hidden="true">
-        <line x1="5" y1="43" x2="59" y2="43" stroke="currentColor" stroke-width="1.1" stroke-linecap="round"></line>
-        <rect x="6" y="10" width="9" height="33" rx="1.5" stroke="currentColor" stroke-width="1.4"></rect>
-        <rect x="18" y="18" width="9" height="25" rx="1.5" stroke="currentColor" stroke-width="1.4"></rect>
-        <rect x="30" y="25" width="9" height="18" rx="1.5" stroke="currentColor" stroke-width="1.4"></rect>
-        <rect x="42" y="31" width="9" height="12" rx="1.5" stroke="currentColor" stroke-width="1.4"></rect>
-        <rect x="54" y="37" width="5" height="6" rx="1.5" stroke="currentColor" stroke-width="1.4"></rect>
-        <line x1="15" y1="10" x2="18" y2="18" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2 1.8" stroke-linecap="round"></line>
-        <line x1="27" y1="18" x2="30" y2="25" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2 1.8" stroke-linecap="round"></line>
-        <line x1="39" y1="25" x2="42" y2="31" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2 1.8" stroke-linecap="round"></line>
-        <line x1="51" y1="31" x2="54" y2="37" stroke="currentColor" stroke-width="0.9" stroke-dasharray="2 1.8" stroke-linecap="round"></line>
-      </svg>
-      <div class="p-trio">
-        <a class="trio-btn launch" href="https://archishman-b.github.io/pricing-analyser/" target="_blank">↗ Launch</a>
-        <div class="trio-sep"></div>
-        <a class="trio-btn soft" href="https://archishman-b.github.io/pricing-analyser/pricing-theory-companion.html" target="_blank">Theory</a>
-        <div class="trio-sep"></div>
-        <a class="trio-btn soft" href="https://archishman-b.github.io/pricing-analyser/pricing-analyser-build-journal.html" target="_blank">PM Journal</a>
+      <!-- DataBridge -->
+      <div class="p-card sub-module" style="--mod-color:#e8a53c">
+        <div class="sub-module-tag"><div class="tag-dot"></div>Meridian Bridge · Data layer</div>
+        <div class="p-status live"><div class="p-dot"></div>Live</div>
+        <div class="p-num">ETL · transform · route</div>
+        <div class="p-title">DataBridge</div>
+        <p class="p-desc">Browser-native data transformation — filter, aggregate, pivot, segment, and route to any Meridian module. The data ingestion layer for the entire platform.</p>
+        <div class="experience-badge">✓ Engagement-proven</div>
+        <svg class="p-graphic" width="64" height="48" viewBox="0 0 64 48" fill="none" aria-hidden="true">
+          <rect x="2" y="11" width="22" height="26" rx="2.5" stroke="currentColor" stroke-width="1.4"/>
+          <line x1="2" y1="18" x2="24" y2="18" stroke="currentColor" stroke-width="0.9"/>
+          <line x1="2" y1="25" x2="24" y2="25" stroke="currentColor" stroke-width="0.9"/>
+          <line x1="2" y1="32" x2="24" y2="32" stroke="currentColor" stroke-width="0.9"/>
+          <line x1="10" y1="11" x2="10" y2="37" stroke="currentColor" stroke-width="0.9"/>
+          <rect x="40" y="11" width="22" height="26" rx="2.5" stroke="currentColor" stroke-width="1.4"/>
+          <line x1="40" y1="18" x2="62" y2="18" stroke="currentColor" stroke-width="0.9"/>
+          <line x1="40" y1="25" x2="62" y2="25" stroke="currentColor" stroke-width="0.9"/>
+          <line x1="40" y1="32" x2="57" y2="32" stroke="currentColor" stroke-width="0.9"/>
+          <line x1="26" y1="24" x2="38" y2="24" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <path d="M34.5 20.5L38.5 24L34.5 27.5" stroke="currentColor" stroke-width="1.4" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <div class="p-trio">
+          <a class="trio-btn launch" href="https://archishman-b.github.io/databridge/databridge.html" target="_blank">↗ Open</a>
+          <div class="trio-sep"></div>
+          <a class="trio-btn soft" href="https://archishman-b.github.io/databridge/databridge-theory-companion.html" target="_blank">Theory</a>
+          <div class="trio-sep"></div>
+          <a class="trio-btn soft" href="https://archishman-b.github.io/databridge/databridge-build-journal.html" target="_blank">PM Journal</a>
+        </div>
       </div>
+
     </div>
 
-    <!-- 05 GTM Strategy Framework -->
-    <div class="p-card locked reveal">
-      <div class="p-status building"><div class="p-dot"></div>Building</div>
-      <div class="p-num">05 · Framework</div>
-      <div class="p-title">GTM Strategy Framework</div>
-      <p class="p-desc">Structured canvas for channel design, pricing model selection, partner ecosystem structure, and RTM sequencing.</p>
-      <!-- funnel icon -->
-      <svg class="p-graphic" width="64" height="48" viewBox="0 0 64 48" fill="none" aria-hidden="true">
-        <path d="M7 9H57L44 23H20L7 9Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"></path>
-        <rect x="20" y="23" width="24" height="12" stroke="currentColor" stroke-width="1.4"></rect>
-        <line x1="32" y1="35" x2="32" y2="42" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"></line>
-        <circle cx="32" cy="45.5" r="2.5" stroke="currentColor" stroke-width="1.3"></circle>
-      </svg>
-      <div class="p-eta">Q3 2026</div>
+    <!-- Bucket 2 -->
+    <div class="bucket-head reveal">
+      <div class="bucket-label">GenAI-Augmented Tools</div>
+      <div class="bucket-rule"></div>
+      <div class="bucket-count">1 live · more building</div>
     </div>
+    <div class="p-grid reveal">
 
-    <!-- 07 Strategic Initiative Prioritiser -->
-    <div class="p-card highlighted reveal" style="position:relative">
-      <div class="ai-flag">
-        <svg viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="2"/><path d="M5 1v1.2M5 7.8V9M1 5h1.2M7.8 5H9M2.5 2.5l.85.85M6.65 6.65l.85.85M7.5 2.5l-.85.85M3.35 6.65l-.85.85" stroke="currentColor" stroke-width=".8" stroke-linecap="round" fill="none"/></svg>
-        AI · API
+      <div class="p-card highlighted" style="position:relative">
+        <div class="ai-flag">
+          <svg viewBox="0 0 10 10" fill="currentColor"><circle cx="5" cy="5" r="2"/><path d="M5 1v1.2M5 7.8V9M1 5h1.2M7.8 5H9M2.5 2.5l.85.85M6.65 6.65l.85.85M7.5 2.5l-.85.85M3.35 6.65l-.85.85" stroke="currentColor" stroke-width=".8" stroke-linecap="round" fill="none"/></svg>
+          AI · API
+        </div>
+        <div class="p-status live"><div class="p-dot"></div>Live</div>
+        <div class="p-num">04 · Tool · AI-powered</div>
+        <div class="p-title">Strategic Initiative Prioritiser</div>
+        <p class="p-desc">Multi-criteria initiative scoring, 2×2 priority matrix, and AI-generated BizOps project briefs. Configure for any S&amp;O context — three demo orgs included.</p>
+        <svg class="p-graphic" width="64" height="48" viewBox="0 0 64 48" fill="none" aria-hidden="true">
+          <rect x="4" y="4" width="26" height="19" rx="2" stroke="currentColor" stroke-width="1.3"/>
+          <rect x="34" y="4" width="26" height="19" rx="2" stroke="currentColor" stroke-width="1.3" opacity=".5"/>
+          <rect x="4" y="27" width="26" height="17" rx="2" stroke="currentColor" stroke-width="1.3" opacity=".5"/>
+          <rect x="34" y="27" width="26" height="17" rx="2" stroke="currentColor" stroke-width="1.3"/>
+          <line x1="32" y1="4" x2="32" y2="44" stroke="currentColor" stroke-width=".8" stroke-dasharray="3 2"/>
+          <line x1="4" y1="24" x2="60" y2="24" stroke="currentColor" stroke-width=".8" stroke-dasharray="3 2"/>
+          <circle cx="17" cy="13" r="3.5" fill="currentColor" opacity=".6"/>
+          <circle cx="47" cy="12" r="4.5" fill="currentColor" opacity=".8"/>
+          <circle cx="47" cy="36" r="3" fill="currentColor" opacity=".35"/>
+          <circle cx="17" cy="35" r="3" fill="currentColor" opacity=".35"/>
+        </svg>
+        <div class="p-trio">
+          <a class="trio-btn launch" href="https://archishman-b.github.io/initiative-prioritizer/strategic-initiative-prioritiser.html" target="_blank">↗ Launch</a>
+          <div class="trio-sep"></div>
+          <a class="trio-btn soft" href="https://archishman-b.github.io/initiative-prioritizer/initiative-prioritiser-build-journal.html" target="_blank">PM Journal</a>
+        </div>
       </div>
-      <div class="p-status live"><div class="p-dot"></div>Live</div>
-      <div class="p-num">07 &middot; Tool &middot; AI-powered</div>
-      <div class="p-title">Strategic Initiative Prioritiser</div>
-      <p class="p-desc">Multi-criteria initiative scoring, 2&times;2 priority matrix, and AI-generated BizOps project briefs. Configure for any S&amp;O context &mdash; three demo orgs included.</p>
-      <svg class="p-graphic" width="64" height="48" viewBox="0 0 64 48" fill="none" aria-hidden="true">
-        <rect x="4" y="4" width="26" height="19" rx="2" stroke="currentColor" stroke-width="1.3"/>
-        <rect x="34" y="4" width="26" height="19" rx="2" stroke="currentColor" stroke-width="1.3" opacity=".5"/>
-        <rect x="4" y="27" width="26" height="17" rx="2" stroke="currentColor" stroke-width="1.3" opacity=".5"/>
-        <rect x="34" y="27" width="26" height="17" rx="2" stroke="currentColor" stroke-width="1.3"/>
-        <line x1="32" y1="4" x2="32" y2="44" stroke="currentColor" stroke-width=".8" stroke-dasharray="3 2"/>
-        <line x1="4" y1="24" x2="60" y2="24" stroke="currentColor" stroke-width=".8" stroke-dasharray="3 2"/>
-        <circle cx="17" cy="13" r="3.5" fill="currentColor" opacity=".6"/>
-        <circle cx="47" cy="12" r="4.5" fill="currentColor" opacity=".8"/>
-        <circle cx="47" cy="36" r="3" fill="currentColor" opacity=".35"/>
-        <circle cx="17" cy="35" r="3" fill="currentColor" opacity=".35"/>
-      </svg>
-      <div class="p-trio">
-        <a class="trio-btn launch" href="https://archishman-b.github.io/initiative-prioritizer/strategic-initiative-prioritiser.html" target="_blank">&uarr; Launch</a>
-        <div class="trio-sep"></div>
-        <a class="trio-btn soft" href="https://archishman-b.github.io/initiative-prioritizer/initiative-prioritiser-build-journal.html" target="_blank">PM Journal</a>
+
+      <div class="p-card locked">
+        <div class="p-status building"><div class="p-dot"></div>Building</div>
+        <div class="p-num">05 · Tool · RAG</div>
+        <div class="p-title">Consulting Knowledge Agent</div>
+        <p class="p-desc">RAG-based Q&amp;A over consulting frameworks, engagement archives, and strategy playbooks. LangChain + vector store, browser-accessible.</p>
+        <svg class="p-graphic" width="64" height="48" viewBox="0 0 64 48" fill="none" aria-hidden="true">
+          <rect x="4" y="6" width="36" height="8" rx="2" stroke="currentColor" stroke-width="1.3"/>
+          <rect x="4" y="18" width="28" height="8" rx="2" stroke="currentColor" stroke-width="1.3" opacity=".7"/>
+          <rect x="4" y="30" width="32" height="8" rx="2" stroke="currentColor" stroke-width="1.3" opacity=".5"/>
+          <circle cx="52" cy="28" r="10" stroke="currentColor" stroke-width="1.3"/>
+          <path d="M48 28h8M52 24v8" stroke="currentColor" stroke-width="1.3" stroke-linecap="round"/>
+        </svg>
+        <div class="p-eta">Q3 2026</div>
       </div>
+
     </div>
 
-    <!-- 06 EA Rationalization Toolkit -->
-    <div class="p-card locked reveal">
-      <div class="p-status soon"><div class="p-dot"></div>Coming soon</div>
-      <div class="p-num">06 · Toolkit</div>
-      <div class="p-title">EA Rationalization Toolkit</div>
-      <p class="p-desc">Capability maturity scoring, portfolio health framework, and investment re-routing logic from the global OEM engagement.</p>
-      <!-- layered architecture icon -->
-      <svg class="p-graphic" width="64" height="48" viewBox="0 0 64 48" fill="none" aria-hidden="true">
-        <rect x="4" y="5" width="16" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"></rect>
-        <rect x="24" y="5" width="16" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"></rect>
-        <rect x="44" y="5" width="16" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"></rect>
-        <rect x="4" y="21" width="26" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"></rect>
-        <rect x="34" y="21" width="26" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"></rect>
-        <rect x="4" y="37" width="56" height="9" rx="1.5" stroke="currentColor" stroke-width="1.3"></rect>
-        <line x1="12" y1="15" x2="16" y2="21" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"></line>
-        <line x1="32" y1="15" x2="26" y2="21" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"></line>
-        <line x1="32" y1="15" x2="42" y2="21" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"></line>
-        <line x1="52" y1="15" x2="48" y2="21" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"></line>
-        <line x1="17" y1="31" x2="20" y2="37" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"></line>
-        <line x1="47" y1="31" x2="44" y2="37" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"></line>
-      </svg>
-      <div class="p-eta">Q4 2026</div>
+    <!-- Bucket 3 -->
+    <div class="bucket-head reveal">
+      <div class="bucket-label">Frameworks &amp; Toolkits</div>
+      <div class="bucket-rule"></div>
+      <div class="bucket-count">2 building</div>
     </div>
+    <div class="p-grid reveal">
 
-  </div>
+      <div class="p-card locked">
+        <div class="p-status building"><div class="p-dot"></div>Building</div>
+        <div class="p-num">06 · Framework</div>
+        <div class="p-title">GTM Strategy Framework</div>
+        <p class="p-desc">Structured canvas for channel design, pricing model selection, partner ecosystem structure, and RTM sequencing.</p>
+        <svg class="p-graphic" width="64" height="48" viewBox="0 0 64 48" fill="none" aria-hidden="true">
+          <path d="M7 9H57L44 23H20L7 9Z" stroke="currentColor" stroke-width="1.4" stroke-linejoin="round"/>
+          <rect x="20" y="23" width="24" height="12" stroke="currentColor" stroke-width="1.4"/>
+          <line x1="32" y1="35" x2="32" y2="42" stroke="currentColor" stroke-width="1.4" stroke-linecap="round"/>
+          <circle cx="32" cy="45.5" r="2.5" stroke="currentColor" stroke-width="1.3"/>
+        </svg>
+        <div class="p-eta">Q3 2026</div>
+      </div>
 
-  <!-- ── CREDENTIALS ── -->
+      <div class="p-card locked">
+        <div class="p-status soon"><div class="p-dot"></div>Coming soon</div>
+        <div class="p-num">07 · Toolkit</div>
+        <div class="p-title">EA Rationalization Toolkit</div>
+        <p class="p-desc">Capability maturity scoring, portfolio health framework, and investment re-routing logic from the global OEM engagement.</p>
+        <svg class="p-graphic" width="64" height="48" viewBox="0 0 64 48" fill="none" aria-hidden="true">
+          <rect x="4" y="5" width="16" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+          <rect x="24" y="5" width="16" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+          <rect x="44" y="5" width="16" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+          <rect x="4" y="21" width="26" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+          <rect x="34" y="21" width="26" height="10" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+          <rect x="4" y="37" width="56" height="9" rx="1.5" stroke="currentColor" stroke-width="1.3"/>
+          <line x1="12" y1="15" x2="16" y2="21" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+          <line x1="32" y1="15" x2="26" y2="21" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+          <line x1="32" y1="15" x2="42" y2="21" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+          <line x1="52" y1="15" x2="48" y2="21" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+          <line x1="17" y1="31" x2="20" y2="37" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+          <line x1="47" y1="31" x2="44" y2="37" stroke="currentColor" stroke-width="0.9" stroke-linecap="round"/>
+        </svg>
+        <div class="p-eta">Q4 2026</div>
+      </div>
+
+    </div>
+  </section>
+
+  <!-- ══ CREDENTIALS ══ -->
   <div class="creds-section">
     <div class="sec reveal"><span>Credentials</span><div class="sec-rule"></div></div>
     <div class="certs reveal">
@@ -594,9 +878,7 @@ footer{border-top:1px solid var(--border);padding:28px 0;display:flex;align-item
 <div class="wrap">
   <footer>
     <div style="display:flex;align-items:center;gap:12px">
-      <img src="https://avatars.githubusercontent.com/u/280364113?v=4"
-           alt="Archishman Bandyopadhyay"
-           style="width:32px;height:32px;border-radius:50%;border:1px solid var(--border);object-fit:cover;display:block;flex-shrink:0">
+      <img src="https://avatars.githubusercontent.com/u/280364113?v=4" alt="Archishman Bandyopadhyay" style="width:32px;height:32px;border-radius:50%;border:1px solid var(--border);object-fit:cover;display:block;flex-shrink:0">
       <div class="foot-copy">Archishman Bandyopadhyay · Hyderabad · 2026</div>
     </div>
     <div class="foot-links">
@@ -612,7 +894,7 @@ const obs = new IntersectionObserver((entries) => {
   entries.forEach(e => {
     if (e.isIntersecting) { e.target.classList.add('visible'); obs.unobserve(e.target); }
   });
-}, { threshold: 0.07 });
+}, { threshold: 0.06 });
 document.querySelectorAll('.reveal').forEach(el => obs.observe(el));
 
 const btn  = document.getElementById('theme-btn');
@@ -627,5 +909,5 @@ btn.addEventListener('click', () => {
   localStorage.setItem('theme', isLight ? 'light' : 'dark');
 });
 </script>
-
-</body></html>
+</body>
+</html>
