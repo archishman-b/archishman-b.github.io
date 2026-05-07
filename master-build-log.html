@@ -135,6 +135,21 @@ body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--t
 .note-block strong{color:var(--tx-1);font-weight:500}
 
 @media(max-width:768px){.layout{grid-template-columns:1fr}.sidebar{display:none}.section{padding:24px 20px}.hero{padding:28px 20px}}
+
+/* ── New classes added May 2026 ── */
+.sec-desc { font-size:13px; color:var(--text2); line-height:1.75; margin-bottom:14px; max-width:640px; }
+.badge-row { display:flex; gap:8px; flex-wrap:wrap; margin-bottom:12px; }
+.badge-info { background:var(--surface2); color:var(--text2); border:1px solid var(--border2); font-family:var(--mono); font-size:10px; padding:2px 8px; border-radius:3px; }
+.link-row { display:flex; gap:10px; flex-wrap:wrap; margin-bottom:20px; }
+.tool-link { font-size:12px; color:var(--accent); text-decoration:none; border:1px solid var(--accent-bd); padding:4px 10px; border-radius:4px; background:var(--accent-dim); transition:opacity .15s; }
+.tool-link:hover { opacity:.75; }
+.subsec-title { font-size:11px; font-weight:600; letter-spacing:.08em; text-transform:uppercase; color:var(--text3); margin:20px 0 10px; font-family:var(--mono); }
+.changelog-entry { background:var(--surface2); border:1px solid var(--border); border-radius:6px; padding:12px 14px; margin-bottom:10px; }
+.changelog-version { font-family:var(--mono); font-size:11px; font-weight:700; color:var(--text); margin-right:8px; }
+.changelog-date { font-family:var(--mono); font-size:10px; color:var(--text3); margin-right:8px; }
+.changelog-type { font-family:var(--mono); font-size:9px; font-weight:700; padding:2px 6px; border-radius:3px; margin-right:10px; }
+.changelog-type.feat { background:rgba(52,211,153,.12); color:#34d399; border:1px solid rgba(52,211,153,.25); }
+.changelog-body { font-size:12px; color:var(--text2); line-height:1.75; margin-top:8px; }
 </style>
 </head>
 <body>
@@ -176,10 +191,10 @@ body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--t
   <div class="hero-title">Build Log</div>
   <p class="hero-sub">Complete versioning, changelogs, backlog, and cross-project dependencies for the build-in-public portfolio. Every tool, every version, every dependency — in one place.</p>
   <div class="hero-stats">
-    <div class="hero-stat"><span class="hero-stat-num">4</span><span class="hero-stat-lbl">Live tools</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">2</span><span class="hero-stat-lbl">In planning</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">8</span><span class="hero-stat-lbl">Live artefacts</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">5</span><span class="hero-stat-lbl">Meridian modules</span></div>
     <div class="hero-stat"><span class="hero-stat-num">12</span><span class="hero-stat-lbl">DB backlog items</span></div>
-    <div class="hero-stat"><span class="hero-stat-num">278</span><span class="hero-stat-lbl">Tests passing</span></div>
+    <div class="hero-stat"><span class="hero-stat-num">5</span><span class="hero-stat-lbl">Field Notes</span></div>
   </div>
 </div>
 
@@ -258,6 +273,107 @@ body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--t
 <!-- PRICING ANALYSER -->
 <section class="section" id="pricing-analyser">
   <div class="sec-header">
+    <!-- ══ MERIDIAN ══ -->
+    <div class="sec-eyebrow" id="meridian">Meridian Platform</div>
+    <div class="sec-title">Meridian — Strategy Analytics Platform</div>
+    <div class="sec-desc">Browser-native strategy analytics workbench. Five live modules covering commercial pricing, consumer analytics, finance, HR &amp; org, and supply chain. Zero-server, zero-licence, single-file architecture.</div>
+    <div class="badge-row">
+      <span class="badge badge-live">Live v1.0</span>
+      <span class="badge badge-info">5 modules</span>
+      <span class="badge badge-info">archishman.com/meridian</span>
+    </div>
+    <div class="link-row">
+      <a class="tool-link" href="http://archishman.com/meridian/" target="_blank">Launch platform ↗</a>
+    </div>
+
+    <div class="subsec-title">Module status</div>
+    <table class="log-table">
+      <thead><tr><th>Module</th><th>Focus</th><th>Phase</th><th>3-piece</th><th>Status</th></tr></thead>
+      <tbody>
+        <tr><td>Price (◈)</td><td>Commercial pricing · 8 sub-modules</td><td>1</td><td>✓ Tool · Theory · Journal</td><td><span class="badge badge-live">Live · engagement-proven</span></td></tr>
+        <tr><td>Pulse (⬟)</td><td>Consumer &amp; marketing analytics · 9 sub-modules</td><td>2</td><td>✓ Tool · Theory · Journal</td><td><span class="badge badge-live">Live v2.0 · Pyodide</span></td></tr>
+        <tr><td>Ledger (▦)</td><td>Finance diagnostics</td><td>3</td><td>Tool only</td><td><span class="badge badge-live">Live</span></td></tr>
+        <tr><td>Org (⊹)</td><td>HR &amp; organisational analytics</td><td>3</td><td>Tool only</td><td><span class="badge badge-live">Live</span></td></tr>
+        <tr><td>Flow (⬡)</td><td>Supply chain · ABC/XYZ · EOQ · Survival</td><td>4</td><td>Tool only</td><td><span class="badge badge-live">Live</span></td></tr>
+      </tbody>
+    </table>
+
+    <!-- ══ PULSE ══ -->
+    <div class="sec-eyebrow" id="pulse" style="margin-top:40px">Meridian Pulse · v2.0</div>
+    <div class="sec-title">Consumer &amp; Marketing Analytics</div>
+    <div class="sec-desc">Nine-module consumer analytics platform. Three architectural layers: Foundation (RFM, Cohorts, k-means), Predictive (BG/NBD CLV, Logistic Regression, Kaplan-Meier — Pyodide-powered), Marketing (Marketing Mix, Bass Diffusion, Behavioural Lab). Renova Home 2,000-customer demo dataset.</div>
+    <div class="badge-row">
+      <span class="badge badge-live">Live v2.0</span>
+      <span class="badge badge-info">9 modules · 3 layers</span>
+      <span class="badge badge-info">Pyodide · BG/NBD · Logistic</span>
+    </div>
+    <div class="link-row">
+      <a class="tool-link" href="http://archishman.com/meridian/pulse/" target="_blank">Launch tool ↗</a>
+      <a class="tool-link" href="http://archishman.com/meridian/pulse/consumer-marketing-analytics-companion.html" target="_blank">Theory ↗</a>
+      <a class="tool-link" href="http://archishman.com/meridian/pulse/pulse-build-journal.html" target="_blank">Journal ↗</a>
+    </div>
+
+    <div class="subsec-title">Changelog</div>
+    <div class="changelog-entry">
+      <span class="changelog-version">v2.0</span><span class="changelog-date">May 2026</span><span class="changelog-type feat">feat</span>
+      <div class="changelog-body">
+        P1 RFM Engine — configurable weights, Dick &amp; Basu segment labels, bubble scatter, top-customer table<br>
+        P2 Cohort Retention — 24-month heatmap, channel stratification, paid-search cliff + referral durability visible<br>
+        P3 k-means Clustering — elbow method, configurable k, commercial cluster profile cards<br>
+        P4 BG/NBD CLV — full MLE via Pyodide/scipy, comparison vs DCF formula, P(alive) by recency<br>
+        P5 Logistic Regression Propensity — gradient descent, coefficient chart, lift curve vs random baseline<br>
+        P6 Kaplan-Meier Survival — stratified curves by channel/segment/tier, median survival, at-risk flags<br>
+        P7 Marketing Mix Model — OLS regression (math.js), configurable channel lags, marginal ROMI by channel<br>
+        P8 Bass Diffusion — category-level p/q, S-curve forecast, 5 Renova Home categories<br>
+        P9 Behavioural Lab — six Ariely forces, composite lift estimate, always-active (no data required)<br>
+        Pyodide lazy-load — branded loading overlay, step indicators, green dot on ready<br>
+        Consumer &amp; Marketing Analytics Theory Companion — 20 sections, 113KB, Editorial Dossier style<br>
+        Pulse PM Build Journal — from heuristics to econometrics narrative, all architectural decisions
+      </div>
+    </div>
+    <div class="changelog-entry">
+      <span class="changelog-version">v1.0</span><span class="changelog-date">Jan 2026</span><span class="changelog-type feat">feat</span>
+      <div class="changelog-body">Initial release: CLV (DCF), heuristic propensity scoring (0.35/0.30/0.20/0.10), churn flag, RFM, cohort retention. 5 modules.</div>
+    </div>
+
+    <div class="subsec-title">Active backlog</div>
+    <table class="log-table">
+      <thead><tr><th>Item</th><th>Description</th><th>Priority</th></tr></thead>
+      <tbody>
+        <tr><td>PULSE-B05</td><td>DataBridge sessionStorage handoff</td><td>Phase 1</td></tr>
+        <tr><td>PULSE-B06</td><td>Interpreter layer for all Layer 2 outputs (coefficients → plain English)</td><td>Phase 1 · critical</td></tr>
+        <tr><td>PULSE-B02</td><td>Gamma-Gamma CLV model on top of BG/NBD</td><td>Phase 2</td></tr>
+        <tr><td>PULSE-B03</td><td>Cohort revenue simulator</td><td>Phase 2</td></tr>
+        <tr><td>PULSE-B04</td><td>LLM-powered cluster naming via Anthropic API</td><td>Phase 3</td></tr>
+      </tbody>
+    </table>
+
+    <!-- ══ INITIATIVE PRIORITISER ══ -->
+    <div class="sec-eyebrow" id="initiative-prioritiser" style="margin-top:40px">Strategic Initiative Prioritiser · v1.0</div>
+    <div class="sec-title">AI-Powered Initiative Prioritisation</div>
+    <div class="sec-desc">Multi-criteria initiative scoring, 2×2 priority matrix (custom Canvas), and AI-generated BizOps project briefs via Anthropic API (structured JSON output). Three pre-loaded demo organisations covering enterprise, scale-up, and consulting contexts.</div>
+    <div class="badge-row">
+      <span class="badge badge-live">Live v1.0</span>
+      <span class="badge badge-info">AI · Anthropic API</span>
+      <span class="badge badge-info">3 demo orgs</span>
+    </div>
+    <div class="link-row">
+      <a class="tool-link" href="https://archishman-b.github.io/initiative-prioritizer/strategic-initiative-prioritiser.html" target="_blank">Launch tool ↗</a>
+      <a class="tool-link" href="https://archishman-b.github.io/initiative-prioritizer/initiative-prioritiser-build-journal.html" target="_blank">Journal ↗</a>
+      <a class="tool-link" href="https://github.com/archishman-b/initiative-prioritizer" target="_blank">GitHub ↗</a>
+    </div>
+
+    <div class="subsec-title">Active backlog</div>
+    <table class="log-table">
+      <thead><tr><th>Item</th><th>Description</th><th>Priority</th></tr></thead>
+      <tbody>
+        <tr><td>IP-B01</td><td>Multi-stakeholder scoring mode with divergence heatmap</td><td>Phase 2</td></tr>
+        <tr><td>IP-B02</td><td>Export to DOCX project brief (python-docx or docx skill)</td><td>Phase 2</td></tr>
+        <tr><td>IP-B03</td><td>Meridian Field TAM/SOM → Revenue Impact criterion feed</td><td>Phase 3</td></tr>
+        <tr><td>IP-B04</td><td>Agentic brief refinement — conversational co-authoring</td><td>Phase 3</td></tr>
+      </tbody>
+    </table>
+
     <div class="sec-eyebrow">Tool 04</div>
     <div class="sec-title">Pricing Analyser</div>
     <div class="sec-sub">Commercial analytics workbench — 8-module pricing intelligence tool</div>
