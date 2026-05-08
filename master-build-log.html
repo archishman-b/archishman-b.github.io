@@ -150,6 +150,14 @@ body{font-family:'Instrument Sans',sans-serif;background:var(--bg);color:var(--t
 .changelog-type { font-family:var(--mono); font-size:9px; font-weight:700; padding:2px 6px; border-radius:3px; margin-right:10px; }
 .changelog-type.feat { background:rgba(52,211,153,.12); color:#34d399; border:1px solid rgba(52,211,153,.25); }
 .changelog-body { font-size:12px; color:var(--text2); line-height:1.75; margin-top:8px; }
+
+/* Scrollbar hide */
+.sb-body::-webkit-scrollbar { display: none; }
+.sb-body { -ms-overflow-style: none; scrollbar-width: none; }
+/* Light mode */
+body.light { --bg:#f5f4f0; --surface:#ffffff; --surface2:#f0ede8; --border:#d8d4cc; --border2:#ccc8bc; --text:#1a1c24; --text2:#4a4e60; --text3:#8a8e9a; }
+body.light .sidebar { background: #16181f; }
+.theme-toggle-bl{background:none;border:1px solid var(--border2);border-radius:5px;color:var(--text2);cursor:pointer;font-size:10px;padding:5px 10px;margin-left:auto}
 </style>
 </head>
 <body>
@@ -771,6 +779,11 @@ const obs = new IntersectionObserver(entries => {
   });
 }, { threshold: 0.25 });
 secs.forEach(s => obs.observe(s));
+</script>
+<button onclick="toggleBLTheme()" style="position:fixed;bottom:20px;right:20px;background:rgba(14,16,24,.9);border:1px solid rgba(255,255,255,.15);border-radius:6px;color:rgba(220,230,252,.7);cursor:pointer;font-size:11px;padding:6px 12px;z-index:999">◐ Light</button>
+<script>
+(function(){if(localStorage.getItem('bltheme')==='light') document.body.classList.add('light')})();
+function toggleBLTheme(){document.body.classList.toggle('light');localStorage.setItem('bltheme',document.body.classList.contains('light')?'light':'dark');const b=document.querySelector('[onclick*=toggleBLTheme]');if(b)b.textContent=document.body.classList.contains('light')?'◑ Dark':'◐ Light';}
 </script>
 </body>
 </html>
